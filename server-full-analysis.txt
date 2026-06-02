@@ -1,0 +1,2231 @@
+===== FILE =====
+udp-server.z1: ELF 32-bit LSB executable, TI msp430, version 1 (embedded), statically linked, with debug_info, not stripped
+===== READELF -h =====
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 ff 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            Standalone App
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Texas Instruments msp430 microcontroller
+  Version:                           0x1
+  Entry point address:               0x3100
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          65412 (bytes into file)
+  Flags:                             0x10000001
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         5
+  Size of section headers:           40 (bytes)
+  Number of section headers:         20
+  Section header string table index: 17
+===== READELF -S =====
+There are 20 section headers, starting at offset 0xff84:
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00003100 0000d4 00a0c6 00  AX  0   0  2
+  [ 2] .rodata           PROGBITS        0000d1c8 00a19c 000553 00   A  0   0  4
+  [ 3] .data             PROGBITS        00001100 00a6f0 000150 00  WA  0   0  2
+  [ 4] .bss              NOBITS          00001250 00a840 0016e8 00  WA  0   0  2
+  [ 5] .noinit           NOBITS          00002938 00a840 000002 00  WA  0   0  2
+  [ 6] .vectors          PROGBITS        0000ffc0 00a840 000040 00  AX  0   0  1
+  [ 7] .comment          PROGBITS        00000000 00a880 000030 01  MS  0   0  1
+  [ 8] .debug_aranges    PROGBITS        00000000 00a8b0 000308 00      0   0  8
+  [ 9] .debug_info       PROGBITS        00000000 00abb8 001b26 00      0   0  1
+  [10] .debug_abbrev     PROGBITS        00000000 00c6de 0009bb 00      0   0  1
+  [11] .debug_line       PROGBITS        00000000 00d099 001003 00      0   0  1
+  [12] .debug_frame      PROGBITS        00000000 00e09c 000270 00      0   0  4
+  [13] .debug_str        PROGBITS        00000000 00e30c 00046e 01  MS  0   0  1
+  [14] .debug_loc        PROGBITS        00000000 00e77a 00162d 00      0   0  1
+  [15] .debug_ranges     PROGBITS        00000000 00fda7 000108 00      0   0  1
+  [16] .gnu.attributes   LOOS+ffffff5    00000000 00feaf 000011 00      0   0  1
+  [17] .shstrtab         STRTAB          00000000 00fec0 0000c4 00      0   0  1
+  [18] .symtab           SYMTAB          00000000 0102a4 0046f0 10     19 387  4
+  [19] .strtab           STRTAB          00000000 014994 003de9 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings)
+  I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
+  O (extra OS processing required) o (OS specific), p (processor specific)
+===== READELF -s =====
+
+Symbol table '.symtab' contains 1135 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00003100     0 SECTION LOCAL  DEFAULT    1 
+     2: 0000d1c8     0 SECTION LOCAL  DEFAULT    2 
+     3: 00001100     0 SECTION LOCAL  DEFAULT    3 
+     4: 00001250     0 SECTION LOCAL  DEFAULT    4 
+     5: 00002938     0 SECTION LOCAL  DEFAULT    5 
+     6: 0000ffc0     0 SECTION LOCAL  DEFAULT    6 
+     7: 00000000     0 SECTION LOCAL  DEFAULT    7 
+     8: 00000000     0 SECTION LOCAL  DEFAULT    8 
+     9: 00000000     0 SECTION LOCAL  DEFAULT    9 
+    10: 00000000     0 SECTION LOCAL  DEFAULT   10 
+    11: 00000000     0 SECTION LOCAL  DEFAULT   11 
+    12: 00000000     0 SECTION LOCAL  DEFAULT   12 
+    13: 00000000     0 SECTION LOCAL  DEFAULT   13 
+    14: 00000000     0 SECTION LOCAL  DEFAULT   14 
+    15: 00000000     0 SECTION LOCAL  DEFAULT   15 
+    16: 00000000     0 SECTION LOCAL  DEFAULT   16 
+    17: 00000000     0 FILE    LOCAL  DEFAULT  ABS contiki-main.c
+    18: 00003376     0 NOTYPE  LOCAL  DEFAULT    1 __br_unexpected_
+    19: 00000000     0 FILE    LOCAL  DEFAULT  ABS adxl345.c
+    20: 000037de    18 FUNC    LOCAL  DEFAULT    1 status
+    21: 0000245e     1 OBJECT  LOCAL  DEFAULT    4 enabled
+    22: 000037f0    46 FUNC    LOCAL  DEFAULT    1 accm_write_reg
+    23: 0000381e    42 FUNC    LOCAL  DEFAULT    1 accm_write_stream
+    24: 00003848    84 FUNC    LOCAL  DEFAULT    1 accm_read_reg
+    25: 0000389c    86 FUNC    LOCAL  DEFAULT    1 process_thread_accmeter_p
+    26: 00001250     2 OBJECT  LOCAL  DEFAULT    4 int1_mask
+    27: 00001252     2 OBJECT  LOCAL  DEFAULT    4 int2_mask
+    28: 000038f2    90 FUNC    LOCAL  DEFAULT    1 accm_read_axis.part.0
+    29: 0000394c    30 FUNC    LOCAL  DEFAULT    1 value
+    30: 00001238    22 OBJECT  LOCAL  DEFAULT    3 adxl345_default_settings
+    31: 00003a14    38 FUNC    LOCAL  DEFAULT    1 configure
+    32: 00001254     8 OBJECT  LOCAL  DEFAULT    4 suppressTimer1
+    33: 0000125c     8 OBJECT  LOCAL  DEFAULT    4 suppressTimer2
+    34: 00000000     0 FILE    LOCAL  DEFAULT  ABS button-sensor.c
+    35: 00003a50    24 FUNC    LOCAL  DEFAULT    1 status
+    36: 00003a68    32 FUNC    LOCAL  DEFAULT    1 value
+    37: 00001264     8 OBJECT  LOCAL  DEFAULT    4 debouncetimer
+    38: 00003a88    78 FUNC    LOCAL  DEFAULT    1 configure
+    39: 00000000     0 FILE    LOCAL  DEFAULT  ABS cc2420-arch-sfd.c
+    40: 00000000     0 FILE    LOCAL  DEFAULT  ABS clock.c
+    41: 00001276     4 OBJECT  LOCAL  DEFAULT    4 count
+    42: 0000127a     4 OBJECT  LOCAL  DEFAULT    4 seconds
+    43: 00001274     2 OBJECT  LOCAL  DEFAULT    4 last_tar
+    44: 00000000     0 FILE    LOCAL  DEFAULT  ABS i2cmaster.c
+    45: 00002479     1 OBJECT  LOCAL  DEFAULT    4 rx_byte_tot
+    46: 00002478     1 OBJECT  LOCAL  DEFAULT    4 tx_byte_tot
+    47: 00000000     0 FILE    LOCAL  DEFAULT  ABS rtimer-arch.c
+    48: 00000000     0 FILE    LOCAL  DEFAULT  ABS uart0.c
+    49: 0000253d     1 OBJECT  LOCAL  DEFAULT    4 transmitting
+    50: 00002272     4 OBJECT  LOCAL  DEFAULT    4 uart0_input_handler
+    51: 00000000     0 FILE    LOCAL  DEFAULT  ABS watchdog.c
+    52: 00002458     2 OBJECT  LOCAL  DEFAULT    4 counter
+    53: 00000000     0 FILE    LOCAL  DEFAULT  ABS autostart.c
+    54: 00000000     0 FILE    LOCAL  DEFAULT  ABS cc2420-arch.c
+    55: 00000000     0 FILE    LOCAL  DEFAULT  ABS cc2420.c
+    56: 00003af0     4 FUNC    LOCAL  DEFAULT    1 get_object
+    57: 00003af4     4 FUNC    LOCAL  DEFAULT    1 set_object
+    58: 00003af8    26 FUNC    LOCAL  DEFAULT    1 strobe
+    59: 00003b12    70 FUNC    LOCAL  DEFAULT    1 getreg
+    60: 00003b58    68 FUNC    LOCAL  DEFAULT    1 setreg
+    61: 00003b9c   114 FUNC    LOCAL  DEFAULT    1 write_ram
+    62: 00003c0e    56 FUNC    LOCAL  DEFAULT    1 write_fifo_buf
+    63: 00003c46    30 FUNC    LOCAL  DEFAULT    1 get_status
+    64: 00003c64    26 FUNC    LOCAL  DEFAULT    1 on
+    65: 0000245f     1 OBJECT  LOCAL  DEFAULT    4 poll_mode
+    66: 00002463     1 OBJECT  LOCAL  DEFAULT    4 receive_on
+    67: 00003c7e    10 FUNC    LOCAL  DEFAULT    1 cc2420_receiving_packet
+    68: 00003c88    10 FUNC    LOCAL  DEFAULT    1 pending_packet
+    69: 00003c92    34 FUNC    LOCAL  DEFAULT    1 wait_for_transmission
+    70: 00003cb4    36 FUNC    LOCAL  DEFAULT    1 wait_for_status
+    71: 00003cd8    76 FUNC    LOCAL  DEFAULT    1 getrxdata
+    72: 00003d24    26 FUNC    LOCAL  DEFAULT    1 flushrx
+    73: 00003d3e    40 FUNC    LOCAL  DEFAULT    1 off
+    74: 00003d66    40 FUNC    LOCAL  DEFAULT    1 RELEASE_LOCK
+    75: 00002460     1 OBJECT  LOCAL  DEFAULT    4 locked
+    76: 00002461     1 OBJECT  LOCAL  DEFAULT    4 lock_on
+    77: 00002462     1 OBJECT  LOCAL  DEFAULT    4 lock_off
+    78: 00003d8e    48 FUNC    LOCAL  DEFAULT    1 set_frame_filtering
+    79: 00003dbe    48 FUNC    LOCAL  DEFAULT    1 set_auto_ack
+    80: 00003dee    44 FUNC    LOCAL  DEFAULT    1 set_poll_mode
+    81: 00003e1a    66 FUNC    LOCAL  DEFAULT    1 cc2420_prepare
+    82: 00003e7e   102 FUNC    LOCAL  DEFAULT    1 cc2420_transmit
+    83: 0000124e     1 OBJECT  LOCAL  DEFAULT    3 send_on_cca
+    84: 00003ee4    18 FUNC    LOCAL  DEFAULT    1 cc2420_send
+    85: 00003f26    84 FUNC    LOCAL  DEFAULT    1 cc2420_cca
+    86: 00003f7a   186 FUNC    LOCAL  DEFAULT    1 cc2420_read
+    87: 00004034    86 FUNC    LOCAL  DEFAULT    1 process_thread_cc2420_pro
+    88: 00001272     2 OBJECT  LOCAL  DEFAULT    4 channel
+    89: 0000126c     2 OBJECT  LOCAL  DEFAULT    4 last_packet_timestamp
+    90: 000041b8   286 FUNC    LOCAL  DEFAULT    1 get_value
+    91: 0000d2a0    16 OBJECT  LOCAL  DEFAULT    2 output_power
+    92: 000042ec   330 FUNC    LOCAL  DEFAULT    1 set_value
+    93: 00002464     1 OBJECT  LOCAL  DEFAULT    4 was_on
+    94: 0000126e     2 OBJECT  LOCAL  DEFAULT    4 prev_MDMCTRL1
+    95: 00001270     2 OBJECT  LOCAL  DEFAULT    4 prev_DACTST
+    96: 00000000     0 FILE    LOCAL  DEFAULT  ABS contiki-z1-platform.c
+    97: 00000000     0 FILE    LOCAL  DEFAULT  ABS csma-output.c
+    98: 000045b8   102 FUNC    LOCAL  DEFAULT    1 schedule_transmission
+    99: 000046a4   432 FUNC    LOCAL  DEFAULT    1 transmit_from_queue
+   100: 0000461e   134 FUNC    LOCAL  DEFAULT    1 tx_done
+   101: 00001128     8 OBJECT  LOCAL  DEFAULT    3 metadata_memb
+   102: 00001120     8 OBJECT  LOCAL  DEFAULT    3 packet_memb
+   103: 0000127e     2 OBJECT  LOCAL  DEFAULT    4 neighbor_list_list
+   104: 00001118     8 OBJECT  LOCAL  DEFAULT    3 neighbor_memb
+   105: 00002465     2 OBJECT  LOCAL  DEFAULT    4 neighbor_memb_memb_used
+   106: 00001280    76 OBJECT  LOCAL  DEFAULT    4 neighbor_memb_memb_mem
+   107: 00002467     8 OBJECT  LOCAL  DEFAULT    4 packet_memb_memb_used
+   108: 000012cc    48 OBJECT  LOCAL  DEFAULT    4 packet_memb_memb_mem
+   109: 0000246f     8 OBJECT  LOCAL  DEFAULT    4 metadata_memb_memb_used
+   110: 000012fc    64 OBJECT  LOCAL  DEFAULT    4 metadata_memb_memb_mem
+   111: 00000000     0 FILE    LOCAL  DEFAULT  ABS csma-security.c
+   112: 00000000     0 FILE    LOCAL  DEFAULT  ABS csma.c
+   113: 000049cc     6 FUNC    LOCAL  DEFAULT    1 on
+   114: 000049d2     6 FUNC    LOCAL  DEFAULT    1 off
+   115: 000049d8    56 FUNC    LOCAL  DEFAULT    1 max_payload
+   116: 00004a10     6 FUNC    LOCAL  DEFAULT    1 send_packet
+   117: 00004a16    96 FUNC    LOCAL  DEFAULT    1 input_packet
+   118: 00004a76    32 FUNC    LOCAL  DEFAULT    1 init
+   119: 00000000     0 FILE    LOCAL  DEFAULT  ABS ctimer.c
+   120: 00004a96   160 FUNC    LOCAL  DEFAULT    1 process_thread_ctimer_pro
+   121: 0000133c     2 OBJECT  LOCAL  DEFAULT    4 ctimer_list_list
+   122: 00002477     1 OBJECT  LOCAL  DEFAULT    4 initialized
+   123: 00000000     0 FILE    LOCAL  DEFAULT  ABS energest.c
+   124: 00000000     0 FILE    LOCAL  DEFAULT  ABS etimer.c
+   125: 00004c30   112 FUNC    LOCAL  DEFAULT    1 update_time
+   126: 0000133e     2 OBJECT  LOCAL  DEFAULT    4 timerlist
+   127: 00001340     4 OBJECT  LOCAL  DEFAULT    4 next_expiration
+   128: 00004caa   196 FUNC    LOCAL  DEFAULT    1 process_thread_etimer_pro
+   129: 00004d6e    64 FUNC    LOCAL  DEFAULT    1 add_timer
+   130: 00000000     0 FILE    LOCAL  DEFAULT  ABS frame802154.c
+   131: 00001148     2 OBJECT  LOCAL  DEFAULT    3 mac_pan_id
+   132: 00004f26   168 FUNC    LOCAL  DEFAULT    1 field_len
+   133: 0000d4ac     2 OBJECT  LOCAL  DEFAULT    2 CSWTCH.16
+   134: 00000000     0 FILE    LOCAL  DEFAULT  ABS framer-802154.c
+   135: 00005352   158 FUNC    LOCAL  DEFAULT    1 parse
+   136: 000054a0   158 FUNC    LOCAL  DEFAULT    1 create_frame
+   137: 0000553e     8 FUNC    LOCAL  DEFAULT    1 create
+   138: 00005546     8 FUNC    LOCAL  DEFAULT    1 hdr_length
+   139: 00000000     0 FILE    LOCAL  DEFAULT  ABS leds-arch.c
+   140: 00000000     0 FILE    LOCAL  DEFAULT  ABS leds.c
+   141: 00000000     0 FILE    LOCAL  DEFAULT  ABS link-stats.c
+   142: 000056dc    44 FUNC    LOCAL  DEFAULT    1 periodic
+   143: 0000114a    10 OBJECT  LOCAL  DEFAULT    3 link_stats_struct
+   144: 00001344    80 OBJECT  LOCAL  DEFAULT    4 _link_stats_mem
+   145: 00000000     0 FILE    LOCAL  DEFAULT  ABS linkaddr.c
+   146: 00000000     0 FILE    LOCAL  DEFAULT  ABS list.c
+   147: 00000000     0 FILE    LOCAL  DEFAULT  ABS log.c
+   148: 00000000     0 FILE    LOCAL  DEFAULT  ABS mac-sequence.c
+   149: 0000247b     1 OBJECT  LOCAL  DEFAULT    4 mac_dsn
+   150: 00001394   224 OBJECT  LOCAL  DEFAULT    4 received_seqnos
+   151: 00000000     0 FILE    LOCAL  DEFAULT  ABS mac.c
+   152: 00000000     0 FILE    LOCAL  DEFAULT  ABS memb.c
+   153: 00000000     0 FILE    LOCAL  DEFAULT  ABS msp430.c
+   154: 00001156     2 OBJECT  LOCAL  DEFAULT    3 cur_break
+   155: 00000000     0 FILE    LOCAL  DEFAULT  ABS nbr-table.c
+   156: 00005d96    42 FUNC    LOCAL  DEFAULT    1 item_from_index
+   157: 00005dc0    38 FUNC    LOCAL  DEFAULT    1 index_from_key
+   158: 00001158     8 OBJECT  LOCAL  DEFAULT    3 neighbor_addr_mem
+   159: 00005de6    30 FUNC    LOCAL  DEFAULT    1 index_from_item
+   160: 00005e04    80 FUNC    LOCAL  DEFAULT    1 nbr_set_bit
+   161: 00005e54    62 FUNC    LOCAL  DEFAULT    1 index_from_lladdr
+   162: 00001474     2 OBJECT  LOCAL  DEFAULT    4 nbr_table_keys_list
+   163: 0000247c     8 OBJECT  LOCAL  DEFAULT    4 used_map
+   164: 00005e92    44 FUNC    LOCAL  DEFAULT    1 nbr_get_bit.constprop.3
+   165: 00005ebe   112 FUNC    LOCAL  DEFAULT    1 remove_key
+   166: 00001478    16 OBJECT  LOCAL  DEFAULT    4 all_tables
+   167: 00002484     8 OBJECT  LOCAL  DEFAULT    4 locked_map
+   168: 00001476     2 OBJECT  LOCAL  DEFAULT    4 num_tables
+   169: 00006036   120 FUNC    LOCAL  DEFAULT    1 entry_is_allowed.isra.2
+   170: 0000248c     8 OBJECT  LOCAL  DEFAULT    4 neighbor_addr_mem_memb_us
+   171: 00001488    80 OBJECT  LOCAL  DEFAULT    4 neighbor_addr_mem_memb_me
+   172: 00000000     0 FILE    LOCAL  DEFAULT  ABS netstack.c
+   173: 000014d8     2 OBJECT  LOCAL  DEFAULT    4 ip_processor_list_list
+   174: 00000000     0 FILE    LOCAL  DEFAULT  ABS node-id-z1.c
+   175: 00000000     0 FILE    LOCAL  DEFAULT  ABS node-id.c
+   176: 00000000     0 FILE    LOCAL  DEFAULT  ABS packetbuf.c
+   177: 000014de     2 OBJECT  LOCAL  DEFAULT    4 buflen
+   178: 000014dc     2 OBJECT  LOCAL  DEFAULT    4 bufptr
+   179: 000014e0   128 OBJECT  LOCAL  DEFAULT    4 packetbuf_aligned
+   180: 00002494     1 OBJECT  LOCAL  DEFAULT    4 hdrlen
+   181: 00000000     0 FILE    LOCAL  DEFAULT  ABS platform.c
+   182: 00001560     8 OBJECT  LOCAL  DEFAULT    4 mgt_timer
+   183: 00000000     0 FILE    LOCAL  DEFAULT  ABS process.c
+   184: 000065c4    64 FUNC    LOCAL  DEFAULT    1 call_process
+   185: 00006604   136 FUNC    LOCAL  DEFAULT    1 exit_process
+   186: 0000668c    48 FUNC    LOCAL  DEFAULT    1 do_poll
+   187: 00002495     1 OBJECT  LOCAL  DEFAULT    4 poll_requested
+   188: 00002496     1 OBJECT  LOCAL  DEFAULT    4 lastevent
+   189: 00002497     1 OBJECT  LOCAL  DEFAULT    4 fevent
+   190: 00002498     1 OBJECT  LOCAL  DEFAULT    4 nevents
+   191: 0000156c    48 OBJECT  LOCAL  DEFAULT    4 events
+   192: 00000000     0 FILE    LOCAL  DEFAULT  ABS queuebuf.c
+   193: 00001160     8 OBJECT  LOCAL  DEFAULT    3 buframmem
+   194: 00001168     8 OBJECT  LOCAL  DEFAULT    3 bufmem
+   195: 00002499     8 OBJECT  LOCAL  DEFAULT    4 buframmem_memb_used
+   196: 0000159c  1360 OBJECT  LOCAL  DEFAULT    4 buframmem_memb_mem
+   197: 000024a1     8 OBJECT  LOCAL  DEFAULT    4 bufmem_memb_used
+   198: 00001aec    16 OBJECT  LOCAL  DEFAULT    4 bufmem_memb_mem
+   199: 00000000     0 FILE    LOCAL  DEFAULT  ABS random.c
+   200: 00000000     0 FILE    LOCAL  DEFAULT  ABS rpl-dag-root.c
+   201: 000024a9     1 OBJECT  LOCAL  DEFAULT    4 initialized.3799
+   202: 00001afc    16 OBJECT  LOCAL  DEFAULT    4 root_ipaddr.3788
+   203: 00000000     0 FILE    LOCAL  DEFAULT  ABS rpl-dag.c
+   204: 00006a02   120 FUNC    LOCAL  DEFAULT    1 init_dag
+   205: 00006a7a   176 FUNC    LOCAL  DEFAULT    1 process_dio_init_dag
+   206: 00000000     0 FILE    LOCAL  DEFAULT  ABS rpl-ext-header.c
+   207: 00007140    74 FUNC    LOCAL  DEFAULT    1 update_hbh_header
+   208: 00000000     0 FILE    LOCAL  DEFAULT  ABS rpl-icmp6.c
+   209: 000076d4    62 FUNC    LOCAL  DEFAULT    1 get32
+   210: 00007712    42 FUNC    LOCAL  DEFAULT    1 set32
+   211: 0000773c    14 FUNC    LOCAL  DEFAULT    1 get16
+   212: 0000774a    16 FUNC    LOCAL  DEFAULT    1 set16
+   213: 0000775a    48 FUNC    LOCAL  DEFAULT    1 dao_ack_input
+   214: 0000778a   296 FUNC    LOCAL  DEFAULT    1 dao_input
+   215: 000078b2   628 FUNC    LOCAL  DEFAULT    1 dio_input
+   216: 00007b26    30 FUNC    LOCAL  DEFAULT    1 dis_input
+   217: 00001170     8 OBJECT  LOCAL  DEFAULT    3 dis_handler
+   218: 00001178     8 OBJECT  LOCAL  DEFAULT    3 dio_handler
+   219: 00001180     8 OBJECT  LOCAL  DEFAULT    3 dao_handler
+   220: 00001188     8 OBJECT  LOCAL  DEFAULT    3 dao_ack_handler
+   221: 00000000     0 FILE    LOCAL  DEFAULT  ABS rpl-mrhof.c
+   222: 00007efc     2 FUNC    LOCAL  DEFAULT    1 reset
+   223: 00007efe     6 FUNC    LOCAL  DEFAULT    1 update_metric_container
+   224: 00007f04    18 FUNC    LOCAL  DEFAULT    1 nbr_link_metric
+   225: 00007f16    20 FUNC    LOCAL  DEFAULT    1 nbr_has_usable_link
+   226: 00007f2a    52 FUNC    LOCAL  DEFAULT    1 nbr_path_cost
+   227: 00007f5e    76 FUNC    LOCAL  DEFAULT    1 within_hysteresis
+   228: 00007faa    40 FUNC    LOCAL  DEFAULT    1 nbr_is_acceptable_parent
+   229: 00007fd2    64 FUNC    LOCAL  DEFAULT    1 rank_via_nbr
+   230: 00008012   116 FUNC    LOCAL  DEFAULT    1 best_parent
+   231: 00000000     0 FILE    LOCAL  DEFAULT  ABS rpl-nbr-policy.c
+   232: 00008086    22 FUNC    LOCAL  DEFAULT    1 get_rank
+   233: 00000000     0 FILE    LOCAL  DEFAULT  ABS rpl-neighbor.c
+   234: 000080bc    36 FUNC    LOCAL  DEFAULT    1 remove_neighbor
+   235: 0000812e   156 FUNC    LOCAL  DEFAULT    1 best_parent
+   236: 000011b4    10 OBJECT  LOCAL  DEFAULT    3 rpl_neighbors_struct
+   237: 00001b0c    64 OBJECT  LOCAL  DEFAULT    4 _rpl_neighbors_mem
+   238: 00000000     0 FILE    LOCAL  DEFAULT  ABS rpl-timers.c
+   239: 000082b8     6 FUNC    LOCAL  DEFAULT    1 handle_state_update
+   240: 000082be    12 FUNC    LOCAL  DEFAULT    1 handle_leaving_timer
+   241: 000082ca    48 FUNC    LOCAL  DEFAULT    1 schedule_dao_retransmissi
+   242: 000083ba    36 FUNC    LOCAL  DEFAULT    1 resend_dao
+   243: 000082fa   134 FUNC    LOCAL  DEFAULT    1 new_dio_interval
+   244: 000083f0   110 FUNC    LOCAL  DEFAULT    1 handle_dio_timer
+   245: 00008380    18 FUNC    LOCAL  DEFAULT    1 handle_unicast_dio_timer
+   246: 00008392    40 FUNC    LOCAL  DEFAULT    1 send_new_dao
+   247: 000083de    18 FUNC    LOCAL  DEFAULT    1 handle_dao_ack_timer
+   248: 00001b4c    22 OBJECT  LOCAL  DEFAULT    4 dis_timer
+   249: 000084d4    38 FUNC    LOCAL  DEFAULT    1 handle_dis_timer
+   250: 0000849a    58 FUNC    LOCAL  DEFAULT    1 handle_periodic_timer
+   251: 00001b62    22 OBJECT  LOCAL  DEFAULT    4 periodic_timer
+   252: 00008748    38 FUNC    LOCAL  DEFAULT    1 handle_probing_timer
+   253: 00000000     0 FILE    LOCAL  DEFAULT  ABS rpl.c
+   254: 00008890     2 FUNC    LOCAL  DEFAULT    1 neighbor_state_changed
+   255: 00008892     2 FUNC    LOCAL  DEFAULT    1 drop_route
+   256: 000024aa     1 OBJECT  LOCAL  DEFAULT    4 rpl_leaf_only
+   257: 0000889a    48 FUNC    LOCAL  DEFAULT    1 get_sr_node_ipaddr
+   258: 000088ca    66 FUNC    LOCAL  DEFAULT    1 init
+   259: 0000890c    48 FUNC    LOCAL  DEFAULT    1 set_ip_from_prefix
+   260: 00000000     0 FILE    LOCAL  DEFAULT  ABS rtimer.c
+   261: 00001b78     2 OBJECT  LOCAL  DEFAULT    4 next_rtimer
+   262: 00000000     0 FILE    LOCAL  DEFAULT  ABS sensors.c
+   263: 00008b14   194 FUNC    LOCAL  DEFAULT    1 process_thread_sensors_pr
+   264: 00001b7a     2 OBJECT  LOCAL  DEFAULT    4 i.2067
+   265: 000024ab     1 OBJECT  LOCAL  DEFAULT    4 num_sensors
+   266: 00001b7c     2 OBJECT  LOCAL  DEFAULT    4 events.2068
+   267: 00000000     0 FILE    LOCAL  DEFAULT  ABS sicslowpan.c
+   268: 00008c00    56 FUNC    LOCAL  DEFAULT    1 clear_fragments
+   269: 00001b98   360 OBJECT  LOCAL  DEFAULT    4 frag_info
+   270: 00001d00  1368 OBJECT  LOCAL  DEFAULT    4 frag_buf
+   271: 00008c38    22 FUNC    LOCAL  DEFAULT    1 addr_context_lookup_by_nu
+   272: 00001b80    10 OBJECT  LOCAL  DEFAULT    4 addr_contexts
+   273: 00008c66   102 FUNC    LOCAL  DEFAULT    1 set_packet_attrs
+   274: 00008ccc   154 FUNC    LOCAL  DEFAULT    1 compress_addr_64
+   275: 00001b8e     2 OBJECT  LOCAL  DEFAULT    4 iphc_ptr
+   276: 00008d66    32 FUNC    LOCAL  DEFAULT    1 addr_context_lookup_by_pr
+   277: 00008d86    16 FUNC    LOCAL  DEFAULT    1 send_packet
+   278: 00008dea    78 FUNC    LOCAL  DEFAULT    1 packet_sent
+   279: 00008d96    84 FUNC    LOCAL  DEFAULT    1 fragment_copy_payload_and
+   280: 00001b96     2 OBJECT  LOCAL  DEFAULT    4 packetbuf_payload_len
+   281: 000024ad     1 OBJECT  LOCAL  DEFAULT    4 packetbuf_hdr_len
+   282: 00001b8a     2 OBJECT  LOCAL  DEFAULT    4 packetbuf_ptr
+   283: 00001b92     2 OBJECT  LOCAL  DEFAULT    4 last_tx_status
+   284: 00001b7e     2 OBJECT  LOCAL  DEFAULT    4 callback
+   285: 00008e38   114 FUNC    LOCAL  DEFAULT    1 store_fragment
+   286: 00008eaa   362 FUNC    LOCAL  DEFAULT    1 add_fragment
+   287: 00009014   150 FUNC    LOCAL  DEFAULT    1 uncompress_addr
+   288: 000090aa  1882 FUNC    LOCAL  DEFAULT    1 output
+   289: 000024ac     1 OBJECT  LOCAL  DEFAULT    4 uncomp_hdr_len
+   290: 00001b8c     2 OBJECT  LOCAL  DEFAULT    4 mac_max_payload
+   291: 00001b90     2 OBJECT  LOCAL  DEFAULT    4 context
+   292: 00001b94     2 OBJECT  LOCAL  DEFAULT    4 my_tag
+   293: 00009804  2328 FUNC    LOCAL  DEFAULT    1 input
+   294: 000024ae     1 OBJECT  LOCAL  DEFAULT    4 curr_page
+   295: 0000d5fb     4 OBJECT  LOCAL  DEFAULT    2 ttl_values
+   296: 00000000     0 FILE    LOCAL  DEFAULT  ABS simple-udp.c
+   297: 0000a11c   168 FUNC    LOCAL  DEFAULT    1 process_thread_simple_udp
+   298: 000024af   140 OBJECT  LOCAL  DEFAULT    4 databuffer
+   299: 0000253b     1 OBJECT  LOCAL  DEFAULT    4 started
+   300: 00000000     0 FILE    LOCAL  DEFAULT  ABS spi-legacy.c
+   301: 00000000     0 FILE    LOCAL  DEFAULT  ABS stack-check.c
+   302: 00002258     2 OBJECT  LOCAL  DEFAULT    4 stack_top.2424
+   303: 0000a336   210 FUNC    LOCAL  DEFAULT    1 process_thread_stack_chec
+   304: 0000225a    12 OBJECT  LOCAL  DEFAULT    4 et.2446
+   305: 00000000     0 FILE    LOCAL  DEFAULT  ABS stimer.c
+   306: 00000000     0 FILE    LOCAL  DEFAULT  ABS tcpip.c
+   307: 0000a5ba    18 FUNC    LOCAL  DEFAULT    1 packet_input.part.3
+   308: 0000a5cc   194 FUNC    LOCAL  DEFAULT    1 process_thread_tcpip_proc
+   309: 00002266    12 OBJECT  LOCAL  DEFAULT    4 periodic
+   310: 00000000     0 FILE    LOCAL  DEFAULT  ABS timer.c
+   311: 00000000     0 FILE    LOCAL  DEFAULT  ABS tmp102.c
+   312: 0000a71a    18 FUNC    LOCAL  DEFAULT    1 status
+   313: 0000253c     1 OBJECT  LOCAL  DEFAULT    4 enabled
+   314: 0000a75a    38 FUNC    LOCAL  DEFAULT    1 configure
+   315: 0000a836     6 FUNC    LOCAL  DEFAULT    1 value
+   316: 00000000     0 FILE    LOCAL  DEFAULT  ABS uart0-putchar.c
+   317: 00000000     0 FILE    LOCAL  DEFAULT  ABS udp-server.c
+   318: 0000a8be    52 FUNC    LOCAL  DEFAULT    1 process_thread_udp_server
+   319: 0000a8f2   108 FUNC    LOCAL  DEFAULT    1 udp_rx_callback
+   320: 00002276    30 OBJECT  LOCAL  DEFAULT    4 udp_conn
+   321: 00000000     0 FILE    LOCAL  DEFAULT  ABS uip-ds6-nbr.c
+   322: 000011fa    10 OBJECT  LOCAL  DEFAULT    3 ds6_neighbors_struct
+   323: 00002294   144 OBJECT  LOCAL  DEFAULT    4 _ds6_neighbors_mem
+   324: 00000000     0 FILE    LOCAL  DEFAULT  ABS uip-ds6-route.c
+   325: 00001204     8 OBJECT  LOCAL  DEFAULT    3 defaultroutermemb
+   326: 00002324     2 OBJECT  LOCAL  DEFAULT    4 defaultrouterlist_list
+   327: 0000253e     2 OBJECT  LOCAL  DEFAULT    4 defaultroutermemb_memb_us
+   328: 00002326    56 OBJECT  LOCAL  DEFAULT    4 defaultroutermemb_memb_me
+   329: 00000000     0 FILE    LOCAL  DEFAULT  ABS uip-ds6.c
+   330: 0000235e    16 OBJECT  LOCAL  DEFAULT    4 default_prefix
+   331: 00002380     2 OBJECT  LOCAL  DEFAULT    4 locprefix
+   332: 0000237e     2 OBJECT  LOCAL  DEFAULT    4 locaddr
+   333: 00002382     2 OBJECT  LOCAL  DEFAULT    4 locmaddr
+   334: 0000236e    16 OBJECT  LOCAL  DEFAULT    4 loc_fipaddr
+   335: 00000000     0 FILE    LOCAL  DEFAULT  ABS uip-icmp6.c
+   336: 0000b208    96 FUNC    LOCAL  DEFAULT    1 echo_reply_input
+   337: 00002396     2 OBJECT  LOCAL  DEFAULT    4 echo_reply_callback_list_
+   338: 0000b268   134 FUNC    LOCAL  DEFAULT    1 echo_request_input
+   339: 00002386    16 OBJECT  LOCAL  DEFAULT    4 tmp_ipaddr
+   340: 00002384     2 OBJECT  LOCAL  DEFAULT    4 input_handler_list_list
+   341: 0000120c     8 OBJECT  LOCAL  DEFAULT    3 echo_request_handler
+   342: 00001214     8 OBJECT  LOCAL  DEFAULT    3 echo_reply_handler
+   343: 00000000     0 FILE    LOCAL  DEFAULT  ABS uip-nd6.c
+   344: 0000b508   658 FUNC    LOCAL  DEFAULT    1 ns_input
+   345: 00002398     2 OBJECT  LOCAL  DEFAULT    4 nd6_opt_llao
+   346: 0000239a     2 OBJECT  LOCAL  DEFAULT    4 nd6_opt_offset
+   347: 0000239c     2 OBJECT  LOCAL  DEFAULT    4 nbr
+   348: 0000239e     2 OBJECT  LOCAL  DEFAULT    4 addr
+   349: 0000121c     8 OBJECT  LOCAL  DEFAULT    3 ns_input_handler
+   350: 00000000     0 FILE    LOCAL  DEFAULT  ABS uip-sr.c
+   351: 0000b7a4    46 FUNC    LOCAL  DEFAULT    1 node_matches_address.part
+   352: 000023a0     2 OBJECT  LOCAL  DEFAULT    4 num_nodes
+   353: 000023a2     2 OBJECT  LOCAL  DEFAULT    4 nodelist_list
+   354: 00001224     8 OBJECT  LOCAL  DEFAULT    3 nodememb
+   355: 00002540     8 OBJECT  LOCAL  DEFAULT    4 nodememb_memb_used
+   356: 000023a4   144 OBJECT  LOCAL  DEFAULT    4 nodememb_memb_mem
+   357: 00000000     0 FILE    LOCAL  DEFAULT  ABS uip-udp-packet.c
+   358: 00000000     0 FILE    LOCAL  DEFAULT  ABS uip6.c
+   359: 0000baa8    50 FUNC    LOCAL  DEFAULT    1 chksum
+   360: 0000bada    84 FUNC    LOCAL  DEFAULT    1 upper_layer_chksum
+   361: 0000bb2e   146 FUNC    LOCAL  DEFAULT    1 ext_hdr_options_process
+   362: 0000bbc0    30 FUNC    LOCAL  DEFAULT    1 uip_check_mtu
+   363: 0000bbde    36 FUNC    LOCAL  DEFAULT    1 uip_update_ttl
+   364: 00002436     2 OBJECT  LOCAL  DEFAULT    4 lastport
+   365: 00000000     0 FILE    LOCAL  DEFAULT  ABS uipbuf.c
+   366: 00002438    16 OBJECT  LOCAL  DEFAULT    4 uipbuf_attrs
+   367: 00002448    16 OBJECT  LOCAL  DEFAULT    4 uipbuf_default_attrs
+   368: 00000000     0 FILE    LOCAL  DEFAULT  ABS uiplib.c
+   369: 00000000     0 FILE    LOCAL  DEFAULT  ABS xmem.c
+   370: 0000c4ea    70 FUNC    LOCAL  DEFAULT    1 wait_ready
+   371: 00000000     0 FILE    LOCAL  DEFAULT  ABS printf.c
+   372: 00000000     0 FILE    LOCAL  DEFAULT  ABS sprintf.c
+   373: 0000c5e6    34 FUNC    LOCAL  DEFAULT    1 append
+   374: 0000245c     2 OBJECT  LOCAL  DEFAULT    4 available_
+   375: 0000245a     2 OBJECT  LOCAL  DEFAULT    4 destination_
+   376: 0000c608    54 FUNC    LOCAL  DEFAULT    1 call_vuprintf
+   377: 00000000     0 FILE    LOCAL  DEFAULT  ABS vuprintf.c
+   378: 0000c65a   374 FUNC    LOCAL  DEFAULT    1 print_field
+   379: 00000000     0 FILE    LOCAL  DEFAULT  ABS puts.c
+   380: 00000000     0 FILE    LOCAL  DEFAULT  ABS rand.c
+   381: 00001234     4 OBJECT  LOCAL  DEFAULT    3 next
+   382: 00000000     0 FILE    LOCAL  DEFAULT  ABS memcmp.c
+   383: 00000000     0 FILE    LOCAL  DEFAULT  ABS memcpy.c
+   384: 00000000     0 FILE    LOCAL  DEFAULT  ABS memmove.c
+   385: 00000000     0 FILE    LOCAL  DEFAULT  ABS memset.c
+   386: 00000000     0 FILE    LOCAL  DEFAULT  ABS z1-sensors.c
+   387: 0000a83c    16 FUNC    GLOBAL DEFAULT    1 putchar
+   388: 00000057     0 NOTYPE  GLOBAL DEFAULT  ABS __BCSCTL1
+   389: 0000005a     0 NOTYPE  GLOBAL DEFAULT  ABS __CACTL2
+   390: 00000174     0 NOTYPE  GLOBAL DEFAULT  ABS __TACCR1
+   391: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gpio_hal_arch_port_pin_se
+   392: 00000000     0 NOTYPE  GLOBAL DEFAULT  ABS _far_end
+   393: 000001d6     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA0DAL
+   394: 00006908     6 FUNC    GLOBAL DEFAULT    1 random_rand
+   395: 00004436   234 FUNC    GLOBAL DEFAULT    1 cc2420_init
+   396: 00000084     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL4
+   397: 00008ad4    14 FUNC    GLOBAL DEFAULT    1 rtimer_arch_now
+   398: 00000150     0 NOTYPE  GLOBAL DEFAULT  ABS __data_size
+   399: 0000015a     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM13
+   400: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_14
+   401: 000080e0    12 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_get_from_lla
+   402: 00000128     0 NOTYPE  GLOBAL DEFAULT  ABS __FCTL1
+   403: 000000d8     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB1CTL0
+   404: 0000c218    18 FUNC    GLOBAL DEFAULT    1 uipbuf_set_len
+   405: 0000b2ee    68 FUNC    GLOBAL DEFAULT    1 uip_icmp6_input
+   406: 000000d6     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1RXBUF
+   407: 0000a85a    22 FUNC    GLOBAL DEFAULT    1 uart0_writeb
+   408: 00005632    14 FUNC    GLOBAL DEFAULT    1 leds_arch_init
+   409: 00000024     0 NOTYPE  GLOBAL DEFAULT  ABS __P1IES
+   410: 000062c0    58 FUNC    GLOBAL DEFAULT    1 packetbuf_copyto
+   411: 00000000     0 NOTYPE  GLOBAL DEFAULT    6 _efardata
+   412: 0000b4f6    18 FUNC    GLOBAL DEFAULT    1 uip_icmp6_init
+   413: 000026d0     8 OBJECT  GLOBAL DEFAULT    4 uip_ds6_timer_ra
+   414: 00002552     1 OBJECT  GLOBAL DEFAULT    4 cc2420_last_rssi
+   415: 000001f2     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA2SZ
+   416: 0000254a     4 OBJECT  GLOBAL DEFAULT    4 accm_int2_cb
+   417: 0000c5d6    16 FUNC    GLOBAL DEFAULT    1 printf
+   418: 00000069     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB0CTL1
+   419: 000039e2    50 FUNC    GLOBAL DEFAULT    1 accm_stop
+   420: 00003624     0 NOTYPE  GLOBAL DEFAULT    1 __isr_24
+   421: 000033c4     0 NOTYPE  GLOBAL DEFAULT    1 __ext_divmod16
+   422: 0000ada6    72 FUNC    GLOBAL DEFAULT    1 uip_ds6_maddr_add
+   423: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gpio_hal_arch_port_write_
+   424: 0000600e    40 FUNC    GLOBAL DEFAULT    1 nbr_table_get_from_lladdr
+   425: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_4
+   426: 00000002     0 NOTYPE  GLOBAL DEFAULT  ABS __IFG1
+   427: 000063a6    34 FUNC    GLOBAL DEFAULT    1 packetbuf_attr_copyto
+   428: 000001e2     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA1DAL
+   429: 00006570    84 FUNC    GLOBAL DEFAULT    1 platform_idle
+   430: 00004de0    12 FUNC    GLOBAL DEFAULT    1 etimer_pending
+   431: 00005f50    60 FUNC    GLOBAL DEFAULT    1 nbr_table_register
+   432: 000059de    22 FUNC    GLOBAL DEFAULT    1 list_push
+   433: 000053f0   176 FUNC    GLOBAL DEFAULT    1 framer_802154_setup_param
+   434: 0000c35c    18 FUNC    GLOBAL DEFAULT    1 uipbuf_clear
+   435: 00000060     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0CTL0
+   436: 000026d8   272 OBJECT  GLOBAL DEFAULT    4 uip_ds6_if
+   437: 00000138     0 NOTYPE  GLOBAL DEFAULT  ABS __OP2
+   438: 0000af84    20 FUNC    GLOBAL DEFAULT    1 uip_ds6_set_lladdr_from_i
+   439: 00005640    52 FUNC    GLOBAL DEFAULT    1 leds_arch_get
+   440: 000000df     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB1TXBUF
+   441: 000040c4    76 FUNC    GLOBAL DEFAULT    1 cc2420_set_pan_addr
+   442: 000027e8     1 OBJECT  GLOBAL DEFAULT    4 uip_ds6_netif_addr_list_o
+   443: 000001a4     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12IFG
+   444: 00002850     2 OBJECT  GLOBAL DEFAULT    4 uip_len
+   445: 0000d2de    82 OBJECT  GLOBAL DEFAULT    2 rpl_lite_driver
+   446: 00008548    56 FUNC    GLOBAL DEFAULT    1 rpl_timers_schedule_dao
+   447: 0000c54e   136 FUNC    GLOBAL DEFAULT    1 xmem_pread
+   448: 00007084   172 FUNC    GLOBAL DEFAULT    1 rpl_dag_init_root
+   449: 0000637c    42 FUNC    GLOBAL DEFAULT    1 packetbuf_copyfrom
+   450: 0000b94c    22 FUNC    GLOBAL DEFAULT    1 uip_sr_init
+   451: 0000d082   232 FUNC    GLOBAL DEFAULT    1 memmove
+   452: 00005aca   110 FUNC    GLOBAL DEFAULT    1 mac_sequence_is_duplicate
+   453: 0000887e    18 FUNC    GLOBAL DEFAULT    1 rpl_is_reachable
+   454: 00008c4e    24 FUNC    GLOBAL DEFAULT    1 sicslowpan_init
+   455: 0000012e     0 NOTYPE  GLOBAL DEFAULT  ABS __TAIV
+   456: 0000c63e    28 FUNC    GLOBAL DEFAULT    1 snprintf
+   457: 00005ab2    24 FUNC    GLOBAL DEFAULT    1 mac_sequence_set_dsn
+   458: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gpio_hal_arch_port_pin_cf
+   459: 00006780    74 FUNC    GLOBAL DEFAULT    1 process_post
+   460: 0000aea2    10 FUNC    GLOBAL DEFAULT    1 uip_ds6_maddr_rm
+   461: 000001da     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA0SZ
+   462: 00010000     0 NOTYPE  GLOBAL DEFAULT  ABS _efartext
+   463: 0000113c    12 OBJECT  GLOBAL DEFAULT    3 etimer_process
+   464: 000033a2     0 FUNC    GLOBAL DEFAULT    1 __udivhi3
+   465: 000069ee    20 FUNC    GLOBAL DEFAULT    1 rpl_dag_root_is_root
+   466: 00000130     0 NOTYPE  GLOBAL DEFAULT  ABS __MPY
+   467: 00000001     0 NOTYPE  GLOBAL DEFAULT  ABS __IE2
+   468: 00002554     2 OBJECT  GLOBAL DEFAULT    4 cc2420_sfd_start_time
+   469: 0000d268    56 OBJECT  GLOBAL DEFAULT    2 cc2420_driver
+   470: 0000013a     0 NOTYPE  GLOBAL DEFAULT  ABS __RESLO
+   471: 00000136     0 NOTYPE  GLOBAL DEFAULT  ABS __MACS
+   472: 000035c2    60 FUNC    GLOBAL DEFAULT    1 irq_p2
+   473: 00000087     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL7
+   474: 00004b98    16 FUNC    GLOBAL DEFAULT    1 ctimer_set
+   475: 000082aa    14 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_init
+   476: 0000002b     0 NOTYPE  GLOBAL DEFAULT  ABS __P2IFG
+   477: 00005028   110 FUNC    GLOBAL DEFAULT    1 frame802154_create_fcf
+   478: 0000001a     0 NOTYPE  GLOBAL DEFAULT  ABS __P3DIR
+   479: 000001be     0 NOTYPE  GLOBAL DEFAULT  ABS __FCTL4
+   480: 000063f8    10 FUNC    GLOBAL DEFAULT    1 packetbuf_attr
+   481: 0000c238    14 FUNC    GLOBAL DEFAULT    1 uipbuf_get_len_field
+   482: 0000a9c4    12 FUNC    GLOBAL DEFAULT    1 uip_ds6_nbr_get_ll
+   483: 00008aee    38 FUNC    GLOBAL DEFAULT    1 rtimer_run_next
+   484: 0000d71c     0 NOTYPE  GLOBAL DEFAULT  ABS _etext
+   485: 00000190     0 NOTYPE  GLOBAL DEFAULT  ABS __TBR
+   486: 00004dc0    18 FUNC    GLOBAL DEFAULT    1 etimer_reset
+   487: 0000a9e6    54 FUNC    GLOBAL DEFAULT    1 uip_ds6_nbr_lookup
+   488: 00004110    22 FUNC    GLOBAL DEFAULT    1 cc2420_interrupt
+   489: 000010f8     0 NOTYPE  GLOBAL DEFAULT  ABS __CALDCO_16MHZ
+   490: 000000d2     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1BR0
+   491: 0000ac14     6 FUNC    GLOBAL DEFAULT    1 uip_ds6_default_prefix
+   492: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND button_hal_button_count
+   493: 00006b2a    30 FUNC    GLOBAL DEFAULT    1 rpl_dag_get_root_ipaddr
+   494: 0000001d     0 NOTYPE  GLOBAL DEFAULT  ABS __P4OUT
+   495: 0000718a   174 FUNC    GLOBAL DEFAULT    1 rpl_ext_header_srh_get_ne
+   496: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gpio_hal_arch_port_read_p
+   497: 00006772    14 FUNC    GLOBAL DEFAULT    1 process_nevents
+   498: 000059f4    38 FUNC    GLOBAL DEFAULT    1 list_add
+   499: 00006c58    46 FUNC    GLOBAL DEFAULT    1 rpl_global_repair
+   500: 00008894     6 FUNC    GLOBAL DEFAULT    1 rpl_get_leaf_only
+   501: 00003778    20 FUNC    GLOBAL DEFAULT    1 i2c_rx_interrupt
+   502: 000001ee     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA2DA
+   503: 0000bd1c  1206 FUNC    GLOBAL DEFAULT    1 uip_process
+   504: 00008792    28 FUNC    GLOBAL DEFAULT    1 rpl_timers_unschedule_lea
+   505: 000035c2     0 NOTYPE  GLOBAL DEFAULT    1 __isr_19
+   506: 000016e8     0 NOTYPE  GLOBAL DEFAULT  ABS __bss_size
+   507: 00000081     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL1
+   508: 0000017e     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB1I2CSA
+   509: 0000b962   142 FUNC    GLOBAL DEFAULT    1 uip_sr_periodic
+   510: 00000152     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM9
+   511: 00005708    12 FUNC    GLOBAL DEFAULT    1 link_stats_from_lladdr
+   512: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_29
+   513: 00005714    48 FUNC    GLOBAL DEFAULT    1 link_stats_is_fresh
+   514: 0000408a    58 FUNC    GLOBAL DEFAULT    1 cc2420_set_channel
+   515: 000010fd     0 NOTYPE  GLOBAL DEFAULT  ABS __CALBC1_8MHZ
+   516: 000037ae     0 NOTYPE  GLOBAL DEFAULT    1 __isr_23
+   517: 00003100     0 NOTYPE  WEAK   DEFAULT    1 __watchdog_support
+   518: 00003370     0 NOTYPE  WEAK   DEFAULT    1 __stop_progExec__
+   519: 0000156a     2 OBJECT  GLOBAL DEFAULT    4 process_list
+   520: 0000cf9a   232 FUNC    GLOBAL DEFAULT    1 memcpy
+   521: 000000d5     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1STAT
+   522: 0000002d     0 NOTYPE  GLOBAL DEFAULT  ABS __P2IE
+   523: 000060ae   178 FUNC    GLOBAL DEFAULT    1 nbr_table_add_lladdr
+   524: 0000aa9c    18 FUNC    GLOBAL DEFAULT    1 uip_ds6_nbr_lladdr_from_i
+   525: 0000c2a8    54 FUNC    GLOBAL DEFAULT    1 uipbuf_get_last_header
+   526: 00004126    44 FUNC    GLOBAL DEFAULT    1 cc2420_set_txpower
+   527: 000000dc     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB1I2CIE
+   528: 000027e9     1 OBJECT  GLOBAL DEFAULT    4 uip_ds6_addr_size
+   529: 000001ee     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA2DAL
+   530: 0000a7de    88 FUNC    GLOBAL DEFAULT    1 tmp102_read_temp_x100
+   531: 00000012     0 NOTYPE  GLOBAL DEFAULT  ABS __P5REN
+   532: 000001d6     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA0DA
+   533: 00005096   212 FUNC    GLOBAL DEFAULT    1 frame802154_create
+   534: 00008124    10 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_is_fresh
+   535: 0000b7d2    60 FUNC    GLOBAL DEFAULT    1 uip_sr_get_node
+   536: 0000b06e    54 FUNC    GLOBAL DEFAULT    1 uip_ds6_compute_reachable
+   537: 00006298     6 FUNC    GLOBAL DEFAULT    1 packetbuf_set_datalen
+   538: 0000d5f7     4 OBJECT  GLOBAL DEFAULT    2 unc_llconf
+   539: 00002852     2 OBJECT  GLOBAL DEFAULT    4 uip_sappdata
+   540: 000025b4   268 OBJECT  GLOBAL DEFAULT    4 curr_instance
+   541: 0000a68e    42 FUNC    GLOBAL DEFAULT    1 tcpip_uipcall
+   542: 0000003e     0 NOTYPE  GLOBAL DEFAULT  ABS __PASEL
+   543: 000000cf     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1IRRCTL
+   544: 0000cf12    44 FUNC    GLOBAL DEFAULT    1 puts
+   545: 000045ac    12 FUNC    GLOBAL DEFAULT    1 init_platform
+   546: 0000110c    12 OBJECT  GLOBAL DEFAULT    3 cc2420_process
+   547: 000062a4     6 FUNC    GLOBAL DEFAULT    1 packetbuf_datalen
+   548: 0000258c    16 OBJECT  GLOBAL DEFAULT    4 packetbuf_addrs
+   549: 00005a1a    16 FUNC    GLOBAL DEFAULT    1 list_length
+   550: 0000a95e    30 FUNC    GLOBAL DEFAULT    1 uip_ds6_nbr_rm
+   551: 000064fe   114 FUNC    GLOBAL DEFAULT    1 platform_init_stage_three
+   552: 00000192     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCR0
+   553: 00004fce    40 FUNC    GLOBAL DEFAULT    1 frame802154_is_broadcast_
+   554: 0000d2b0    26 OBJECT  GLOBAL DEFAULT    2 csma_driver
+   555: 00008996   140 FUNC    GLOBAL DEFAULT    1 rpl_get_global_address
+   556: 0000c22a    14 FUNC    GLOBAL DEFAULT    1 uipbuf_set_len_field
+   557: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_11
+   558: 00000186     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCTL2
+   559: 00006c08    38 FUNC    GLOBAL DEFAULT    1 rpl_is_addr_in_our_dag
+   560: 0000003a     0 NOTYPE  GLOBAL DEFAULT  ABS __P7OUT
+   561: 000033fe     0 FUNC    GLOBAL DEFAULT    1 __udivsi3
+   562: 000027ea    90 OBJECT  GLOBAL DEFAULT    4 uip_ds6_prefix_list
+   563: 00000038     0 NOTYPE  GLOBAL DEFAULT  ABS __PAIN
+   564: 00000025     0 NOTYPE  GLOBAL DEFAULT  ABS __P1IE
+   565: 0000006b     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB0BR1
+   566: 000063c8    36 FUNC    GLOBAL DEFAULT    1 packetbuf_attr_copyfrom
+   567: 0000a282    50 FUNC    GLOBAL DEFAULT    1 spi_init
+   568: 00002930     1 OBJECT  GLOBAL DEFAULT    4 process_maxevents
+   569: 000000d4     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1MCTL
+   570: 000000dd     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB1STAT
+   571: 0000bc98   132 FUNC    GLOBAL DEFAULT    1 uip_udp_new
+   572: 000001a0     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12CTL0
+   573: 000067dc    54 FUNC    GLOBAL DEFAULT    1 process_start
+   574: 0000c4b0    18 FUNC    GLOBAL DEFAULT    1 watchdog_periodic
+   575: 00005cf0    10 FUNC    GLOBAL DEFAULT    1 splhigh_
+   576: 000049c6     6 FUNC    GLOBAL DEFAULT    1 csma_security_parse_frame
+   577: 0000a454    34 FUNC    GLOBAL DEFAULT    1 tcpip_output
+   578: 000067ca    18 FUNC    GLOBAL DEFAULT    1 process_post_synch
+   579: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gpio_hal_arch_port_write_
+   580: 0000c1d2    42 FUNC    GLOBAL DEFAULT    1 uip_htonl
+   581: 00005cfa   110 FUNC    GLOBAL DEFAULT    1 msp430_sync_dco
+   582: 00000066     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0RXBUF
+   583: 00005998    18 FUNC    GLOBAL DEFAULT    1 list_tail
+   584: 00005f2e    34 FUNC    GLOBAL DEFAULT    1 nbr_table_is_registered
+   585: 000035fe    38 FUNC    GLOBAL DEFAULT    1 cc2420_timerb1_interrupt
+   586: 0000a84c    14 FUNC    GLOBAL DEFAULT    1 uart0_active
+   587: 00000082     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL2
+   588: 0000019c     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCR5
+   589: 0000aac2     4 FUNC    GLOBAL DEFAULT    1 uip_ds6_route_nexthop
+   590: 00000061     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0CTL1
+   591: 00007eda    34 FUNC    GLOBAL DEFAULT    1 rpl_icmp6_init
+   592: 000036f4     0 NOTYPE  GLOBAL DEFAULT    1 __isr_16
+   593: 00008a22    36 FUNC    GLOBAL DEFAULT    1 rpl_reset_prefix
+   594: 0000c49c    20 FUNC    GLOBAL DEFAULT    1 watchdog_start
+   595: 00003510     0 NOTYPE  GLOBAL DEFAULT    1 __udivmoddi4
+   596: 0000a750    10 FUNC    GLOBAL DEFAULT    1 tmp102_stop
+   597: 00000038     0 NOTYPE  GLOBAL DEFAULT  ABS __P7IN
+   598: 00001154     2 OBJECT  GLOBAL DEFAULT    3 curr_log_level_main
+   599: 000087d8    28 FUNC    GLOBAL DEFAULT    1 rpl_timers_init
+   600: 00008212    48 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_remove_all
+   601: 00004dae    18 FUNC    GLOBAL DEFAULT    1 etimer_set
+   602: 000000cd     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1ABCTL
+   603: 00004152    30 FUNC    GLOBAL DEFAULT    1 cc2420_get_txpower
+   604: 00000035     0 NOTYPE  GLOBAL DEFAULT  ABS __P6OUT
+   605: 00008a46   128 FUNC    GLOBAL DEFAULT    1 rpl_set_prefix_from_addr
+   606: 0000255e     1 OBJECT  GLOBAL DEFAULT    4 transmit_data1
+   607: 00000034     0 NOTYPE  GLOBAL DEFAULT  ABS __P6IN
+   608: 000087ae    42 FUNC    GLOBAL DEFAULT    1 rpl_timers_schedule_leavi
+   609: 000001c8     0 NOTYPE  GLOBAL DEFAULT  ABS __DAC12_0DAT
+   610: 00000182     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCTL0
+   611: 000037d8     0 NOTYPE  GLOBAL DEFAULT    1 __isr_26
+   612: 0000d2d6     8 OBJECT  GLOBAL DEFAULT    2 linkaddr_null
+   613: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gpio_hal_arch_init
+   614: 0000aa1c    12 FUNC    GLOBAL DEFAULT    1 uip_ds6_nbr_ll_lookup
+   615: 00005982    12 FUNC    GLOBAL DEFAULT    1 linkaddr_set_node_addr
+   616: 00005674    62 FUNC    GLOBAL DEFAULT    1 leds_arch_set
+   617: 0000696c   130 FUNC    GLOBAL DEFAULT    1 rpl_dag_root_start
+   618: 000081ca    72 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_set_preferre
+   619: 00002854     8 OBJECT  GLOBAL DEFAULT    4 uip_lladdr
+   620: 0000006d     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB0STAT
+   621: 0000a2b4    46 FUNC    GLOBAL DEFAULT    1 stack_check_init
+   622: 00004ba8    44 FUNC    GLOBAL DEFAULT    1 ctimer_reset
+   623: 0000019e     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCR6
+   624: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_5
+   625: 00000013     0 NOTYPE  GLOBAL DEFAULT  ABS __P6REN
+   626: 0000c246    98 FUNC    GLOBAL DEFAULT    1 uipbuf_get_next_header
+   627: 00007130    16 FUNC    GLOBAL DEFAULT    1 rpl_dag_init
+   628: 0000255f     1 OBJECT  GLOBAL DEFAULT    4 rx_byte_ctr
+   629: 0000003b     0 NOTYPE  GLOBAL DEFAULT  ABS __P8OUT
+   630: 0000bc02    10 FUNC    GLOBAL DEFAULT    1 uip_icmp6chksum
+   631: 00000063     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0BR1
+   632: 0000285c   140 OBJECT  GLOBAL DEFAULT    4 uip_aligned_buf
+   633: 0000abdc    56 FUNC    GLOBAL DEFAULT    1 uip_ds6_defrt_periodic
+   634: 000034ee     0 FUNC    GLOBAL DEFAULT    1 __umoddi3
+   635: 0000d71c     0 NOTYPE  GLOBAL DEFAULT  ABS __data_load_start
+   636: 000028e8     1 OBJECT  GLOBAL DEFAULT    4 uip_flags
+   637: 000056b8    18 FUNC    GLOBAL DEFAULT    1 leds_on
+   638: 00003376     0 NOTYPE  GLOBAL DEFAULT    1 __dtors_end
+   639: 00004e40     6 FUNC    GLOBAL DEFAULT    1 frame802154_get_pan_id
+   640: 000026c0    16 OBJECT  GLOBAL DEFAULT    4 rpl_multicast_addr
+   641: 0000353e   132 FUNC    GLOBAL DEFAULT    1 port1_isr
+   642: 0000003c     0 NOTYPE  GLOBAL DEFAULT  ABS __P7DIR
+   643: 00000053     0 NOTYPE  GLOBAL DEFAULT  ABS __BCSCTL3
+   644: 00006812    24 FUNC    GLOBAL DEFAULT    1 process_poll
+   645: 000068a6    42 FUNC    GLOBAL DEFAULT    1 queuebuf_free
+   646: 00000039     0 NOTYPE  GLOBAL DEFAULT  ABS __P8IN
+   647: 000001de     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA1SA
+   648: 00002938     0 NOTYPE  GLOBAL DEFAULT    4 __bss_end
+   649: 00000088     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL8
+   650: 0000b858    72 FUNC    GLOBAL DEFAULT    1 uip_sr_expire_parent
+   651: 00000166     0 NOTYPE  GLOBAL DEFAULT  ABS __TACCTL2
+   652: 0000682a    18 FUNC    GLOBAL DEFAULT    1 queuebuf_init
+   653: 000034d4     0 FUNC    GLOBAL DEFAULT    1 __udivdi3
+   654: 0000256c    22 OBJECT  GLOBAL DEFAULT    4 periodic_timer
+   655: 000001e8     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA2CTL
+   656: 00000065     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0STAT
+   657: 000014da     2 OBJECT  GLOBAL DEFAULT    4 node_id
+   658: 000001d2     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA0SAL
+   659: 0000d24c    14 OBJECT  GLOBAL DEFAULT    2 adxl345
+   660: 00005a68    64 FUNC    GLOBAL DEFAULT    1 log_lladdr
+   661: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_2
+   662: 0000618a    16 FUNC    GLOBAL DEFAULT    1 nbr_table_lock
+   663: 00000156     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM11
+   664: 00005994     4 FUNC    GLOBAL DEFAULT    1 list_head
+   665: 0000a72c    36 FUNC    GLOBAL DEFAULT    1 tmp102_init
+   666: 00000160     0 NOTYPE  GLOBAL DEFAULT  ABS __TACTL
+   667: 000033f6     0 FUNC    GLOBAL DEFAULT    1 __modhi3
+   668: 00000158     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM12
+   669: 0000012c     0 NOTYPE  GLOBAL DEFAULT  ABS __FCTL3
+   670: 00002844    12 OBJECT  GLOBAL DEFAULT    4 uip_ds6_timer_periodic
+   671: 00005968     8 FUNC    GLOBAL DEFAULT    1 linkaddr_copy
+   672: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_10
+   673: 000066bc    14 FUNC    GLOBAL DEFAULT    1 process_alloc_event
+   674: 00002560     2 OBJECT  GLOBAL DEFAULT    4 tx_buf_ptr
+   675: 0000aa28   110 FUNC    GLOBAL DEFAULT    1 uip_ds6_nbr_update_ll
+   676: 00000148     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM4
+   677: 00002562     1 OBJECT  GLOBAL DEFAULT    4 tx_byte_ctr
+   678: 0000b79a    10 FUNC    GLOBAL DEFAULT    1 uip_nd6_init
+   679: 0000a780    94 FUNC    GLOBAL DEFAULT    1 tmp102_read_reg
+   680: 0000003e     0 NOTYPE  GLOBAL DEFAULT  ABS __P7SEL
+   681: 0000002e     0 NOTYPE  GLOBAL DEFAULT  ABS __P2SEL
+   682: 00005d68    46 FUNC    GLOBAL DEFAULT    1 msp430_cpu_init
+   683: 00000180     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCTL
+   684: 00006b48    74 FUNC    GLOBAL DEFAULT    1 rpl_dag_leave
+   685: 0000af70    20 FUNC    GLOBAL DEFAULT    1 uip_ds6_set_addr_iid
+   686: 000010f9     0 NOTYPE  GLOBAL DEFAULT  ABS __CALBC1_16MHZ
+   687: 0000864e   218 FUNC    GLOBAL DEFAULT    1 get_probing_target
+   688: 00000126     0 NOTYPE  GLOBAL DEFAULT  ABS __DMAIV
+   689: 0000008d     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL13
+   690: 00002556     1 OBJECT  GLOBAL DEFAULT    4 cc2420_last_correlation
+   691: 00008728    32 FUNC    GLOBAL DEFAULT    1 rpl_schedule_probing
+   692: 00002582     8 OBJECT  GLOBAL DEFAULT    4 linkaddr_node_addr
+   693: 0000014c     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM6
+   694: 00000023     0 NOTYPE  GLOBAL DEFAULT  ABS __P1IFG
+   695: 000010fb     0 NOTYPE  GLOBAL DEFAULT  ABS __CALBC1_12MHZ
+   696: 0000aa96     6 FUNC    GLOBAL DEFAULT    1 uip_ds6_nbr_ipaddr_from_l
+   697: 0000a1f6   140 FUNC    GLOBAL DEFAULT    1 simple_udp_register
+   698: 00004b4e    74 FUNC    GLOBAL DEFAULT    1 ctimer_set_with_process
+   699: 00007320   142 FUNC    GLOBAL DEFAULT    1 rpl_ext_header_hbh_update
+   700: 0000895a    60 FUNC    GLOBAL DEFAULT    1 rpl_lollipop_greater_than
+   701: 0000013c     0 NOTYPE  GLOBAL DEFAULT  ABS __RESHI
+   702: 0000011a     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB0I2CSA
+   703: 000000ce     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1IRTCTL
+   704: 00000172     0 NOTYPE  GLOBAL DEFAULT  ABS __TACCR0
+   705: 0000876e    36 FUNC    GLOBAL DEFAULT    1 rpl_schedule_probing_now
+   706: 000056ca    18 FUNC    GLOBAL DEFAULT    1 leds_off
+   707: 000055f2    10 FUNC    GLOBAL DEFAULT    1 i2c_busy
+   708: 00000056     0 NOTYPE  GLOBAL DEFAULT  ABS __DCOCTL
+   709: 00000085     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL5
+   710: 0000690e    94 FUNC    GLOBAL DEFAULT    1 rpl_dag_root_set_prefix
+   711: 0000b474   130 FUNC    GLOBAL DEFAULT    1 uip_icmp6_send
+   712: 00000003     0 NOTYPE  GLOBAL DEFAULT  ABS __IFG2
+   713: 00002938     2 OBJECT  GLOBAL DEFAULT    5 __wdt_clear_value
+   714: 00001100    12 OBJECT  GLOBAL DEFAULT    3 accmeter_process
+   715: 00000000     0 NOTYPE  GLOBAL DEFAULT  ABS __far_data_size
+   716: 00004b36    24 FUNC    GLOBAL DEFAULT    1 ctimer_init
+   717: 0000554e    54 FUNC    GLOBAL DEFAULT    1 i2c_receiveinit
+   718: 000010da     0 NOTYPE  GLOBAL DEFAULT  ABS __TLV_ADC12_1_TAG
+   719: 0000254e     4 OBJECT  GLOBAL DEFAULT    4 accm_int1_cb
+   720: 0000ba28    42 FUNC    GLOBAL DEFAULT    1 uip_udp_packet_send
+   721: 00004e46   224 FUNC    GLOBAL DEFAULT    1 frame802154_has_panid
+   722: 0000001b     0 NOTYPE  GLOBAL DEFAULT  ABS __P3SEL
+   723: 000001d0     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA0CTL
+   724: 00000045     0 NOTYPE  GLOBAL DEFAULT  ABS __P5SEL2
+   725: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_7
+   726: 00002558     2 OBJECT  GLOBAL DEFAULT    4 cc2420_authority_level_of
+   727: 0000d5f3     4 OBJECT  GLOBAL DEFAULT    2 unc_ctxconf
+   728: 000084fa    46 FUNC    GLOBAL DEFAULT    1 rpl_timers_dio_reset
+   729: 000042d6    22 FUNC    GLOBAL DEFAULT    1 cc2420_set_cca_threshold
+   730: 0000378c     0 NOTYPE  GLOBAL DEFAULT    1 __isr_25
+   731: 000010f7     0 NOTYPE  GLOBAL DEFAULT  ABS __TLV_DCO_30_LEN
+   732: 0000006c     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB0I2CIE
+   733: 0000006a     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB0BR0
+   734: 0000453a    40 FUNC    GLOBAL DEFAULT    1 clock_init
+   735: 0000456e    36 FUNC    GLOBAL DEFAULT    1 clock_wait
+   736: 0000342c     0 FUNC    GLOBAL DEFAULT    1 __umodsi3
+   737: 000063ec    12 FUNC    GLOBAL DEFAULT    1 packetbuf_set_attr
+   738: 000028ea     2 OBJECT  GLOBAL DEFAULT    4 uip_udp_conn
+   739: 00000028     0 NOTYPE  GLOBAL DEFAULT  ABS __P2IN
+   740: 0000a6d4    42 FUNC    GLOBAL DEFAULT    1 timer_expired
+   741: 000062fa    12 FUNC    GLOBAL DEFAULT    1 packetbuf_totlen
+   742: 0000014e     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM7
+   743: 0000b0a4   356 FUNC    GLOBAL DEFAULT    1 uip_ds6_init
+   744: 00000118     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB0I2COA
+   745: 00000184     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCTL1
+   746: 0000a98e    54 FUNC    GLOBAL DEFAULT    1 uip_ds6_nbr_add
+   747: 000000de     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB1RXBUF
+   748: 0000005b     0 NOTYPE  GLOBAL DEFAULT  ABS __CAPD
+   749: 00008632    28 FUNC    GLOBAL DEFAULT    1 get_probing_delay
+   750: 000033bc     0 FUNC    GLOBAL DEFAULT    1 __umodhi3
+   751: 00008ac6    14 FUNC    GLOBAL DEFAULT    1 rtimer_arch_init
+   752: 00008580    52 FUNC    GLOBAL DEFAULT    1 rpl_timers_schedule_dao_a
+   753: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_0
+   754: 00002564     2 OBJECT  GLOBAL DEFAULT    4 i
+   755: 0000259c    24 OBJECT  GLOBAL DEFAULT    4 packetbuf_attrs
+   756: 00000029     0 NOTYPE  GLOBAL DEFAULT  ABS __P2OUT
+   757: 0000aaae     2 FUNC    GLOBAL DEFAULT    1 uip_ds6_link_callback
+   758: 00005aa8    10 FUNC    GLOBAL DEFAULT    1 mac_sequence_init
+   759: 00002926     2 OBJECT  GLOBAL DEFAULT    4 bufferPointer
+   760: 0000012a     0 NOTYPE  GLOBAL DEFAULT  ABS __FCTL2
+   761: 00000064     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0MCTL
+   762: 00008242    20 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_get_from_ipa
+   763: 0000258a     2 OBJECT  GLOBAL DEFAULT    4 msp430_dco_required
+   764: 000036f4   132 FUNC    GLOBAL DEFAULT    1 i2c_tx_interrupt
+   765: 0000aaca     2 FUNC    GLOBAL DEFAULT    1 uip_ds6_route_rm
+   766: 00006210    14 FUNC    GLOBAL DEFAULT    1 netstack_init
+   767: 00003128     0 NOTYPE  WEAK   DEFAULT    1 __do_clear_bss
+   768: 0000247a     1 OBJECT  GLOBAL DEFAULT    4 prescale_msb
+   769: 00000014     0 NOTYPE  GLOBAL DEFAULT  ABS __PAREN
+   770: 00008850    28 FUNC    GLOBAL DEFAULT    1 rpl_timers_schedule_state
+   771: 0000008f     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL15
+   772: 0000aacc    56 FUNC    GLOBAL DEFAULT    1 uip_ds6_defrt_rm
+   773: 00003e5c    34 FUNC    GLOBAL DEFAULT    1 cc2420_on
+   774: 00006846    78 FUNC    GLOBAL DEFAULT    1 queuebuf_new_from_packetb
+   775: 00000007     0 NOTYPE  GLOBAL DEFAULT  ABS __UC1IFG
+   776: 00000021     0 NOTYPE  GLOBAL DEFAULT  ABS __P1OUT
+   777: 00008ae2     6 FUNC    GLOBAL DEFAULT    1 rtimer_arch_schedule
+   778: 000037d8     6 FUNC    GLOBAL DEFAULT    1 watchdog_interrupt
+   779: 0000002c     0 NOTYPE  GLOBAL DEFAULT  ABS __P2IES
+   780: 0000015c     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM14
+   781: 00000026     0 NOTYPE  GLOBAL DEFAULT  ABS __P1SEL
+   782: 0000a870    78 FUNC    GLOBAL DEFAULT    1 uart0_init
+   783: 00005970    18 FUNC    GLOBAL DEFAULT    1 linkaddr_cmp
+   784: 00007b72    52 FUNC    GLOBAL DEFAULT    1 rpl_icmp6_dis_output
+   785: 0000c4c2    22 FUNC    GLOBAL DEFAULT    1 watchdog_stop
+   786: 00000198     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCR3
+   787: 0000003d     0 NOTYPE  GLOBAL DEFAULT  ABS __P8DIR
+   788: 00000080     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL0
+   789: 0000cf3e    38 FUNC    GLOBAL DEFAULT    1 rand
+   790: 0000c324    18 FUNC    GLOBAL DEFAULT    1 uipbuf_get_attr
+   791: 00005584    48 FUNC    GLOBAL DEFAULT    1 i2c_transmitinit
+   792: 000035fe     0 NOTYPE  GLOBAL DEFAULT    1 __isr_28
+   793: 000011be    12 OBJECT  GLOBAL DEFAULT    3 sensors_process
+   794: 00000140     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM0
+   795: 00006894    18 FUNC    GLOBAL DEFAULT    1 queuebuf_update_attr_from
+   796: 00002566     1 OBJECT  GLOBAL DEFAULT    4 receive_data
+   797: 00006fa8   102 FUNC    GLOBAL DEFAULT    1 rpl_process_dao
+   798: 00008528    32 FUNC    GLOBAL DEFAULT    1 rpl_timers_schedule_unica
+   799: 00004592    26 FUNC    GLOBAL DEFAULT    1 clock_seconds
+   800: 0000255a     1 OBJECT  GLOBAL DEFAULT    4 cc2420_sfd_counter
+   801: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND button_hal_buttons
+   802: 000033fe     0 NOTYPE  GLOBAL DEFAULT    1 __ext_udivmod32
+   803: 0000af98    60 FUNC    GLOBAL DEFAULT    1 get_match_length
+   804: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gpio_hal_arch_port_interr
+   805: 00005fd8    54 FUNC    GLOBAL DEFAULT    1 nbr_table_head
+   806: 00006f7e    42 FUNC    GLOBAL DEFAULT    1 rpl_process_dis
+   807: 0000adee   180 FUNC    GLOBAL DEFAULT    1 uip_ds6_addr_add
+   808: 00000027     0 NOTYPE  GLOBAL DEFAULT  ABS __P1REN
+   809: 0000337c     0 NOTYPE  GLOBAL DEFAULT    1 __mulsi3
+   810: 00008110    10 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_get_ipaddr
+   811: 000010c0     0 NOTYPE  GLOBAL DEFAULT  ABS __TLV_CHECKSUM
+   812: 0000337a     0 NOTYPE  WEAK   DEFAULT    1 _unexpected_
+   813: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_8
+   814: 000028ec     2 OBJECT  GLOBAL DEFAULT    4 uip_appdata
+   815: 000010db     0 NOTYPE  GLOBAL DEFAULT  ABS __TLV_ADC12_1_LEN
+   816: 0000014a     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM5
+   817: 00004dec    22 FUNC    GLOBAL DEFAULT    1 etimer_next_expiration_ti
+   818: 0000018a     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCTL4
+   819: 00006160    42 FUNC    GLOBAL DEFAULT    1 nbr_table_remove
+   820: 000028ee     2 OBJECT  GLOBAL DEFAULT    4 uip_conn
+   821: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_20
+   822: 00002932     1 OBJECT  GLOBAL DEFAULT    4 tcpip_event
+   823: 0000ad68    62 FUNC    GLOBAL DEFAULT    1 uip_ds6_get_link_local
+   824: 00006306    60 FUNC    GLOBAL DEFAULT    1 packetbuf_hdralloc
+   825: 0000008e     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL14
+   826: 0000c36e    26 FUNC    GLOBAL DEFAULT    1 uipbuf_init
+   827: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_3
+   828: 000001a6     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12IE
+   829: 0000c7d0  1858 FUNC    GLOBAL DEFAULT    1 vuprintf
+   830: 00004ca0    10 FUNC    GLOBAL DEFAULT    1 etimer_request_poll
+   831: 0000cf6e    44 FUNC    GLOBAL DEFAULT    1 memcmp
+   832: 0000886c    18 FUNC    GLOBAL DEFAULT    1 rpl_has_joined
+   833: 00000144     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM2
+   834: 000001ea     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA2SAL
+   835: 000001e6     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA1SZ
+   836: 000010fc     0 NOTYPE  GLOBAL DEFAULT  ABS __CALDCO_8MHZ
+   837: 00000033     0 NOTYPE  GLOBAL DEFAULT  ABS __P5SEL
+   838: 0000ffc0     0 NOTYPE  GLOBAL DEFAULT    6 __vectors_start
+   839: 000033c4     0 FUNC    GLOBAL DEFAULT    1 __divhi3
+   840: 000033a2     0 NOTYPE  GLOBAL DEFAULT    1 __ext_udivmod16
+   841: 00003624   208 FUNC    GLOBAL DEFAULT    1 timera1
+   842: 0000ab40   102 FUNC    GLOBAL DEFAULT    1 uip_ds6_defrt_add
+   843: 000000da     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB1BR0
+   844: 0000d5ed     2 OBJECT  GLOBAL DEFAULT    2 llprefix
+   845: 00006402    20 FUNC    GLOBAL DEFAULT    1 packetbuf_set_addr
+   846: 0000353e     0 NOTYPE  GLOBAL DEFAULT    1 __isr_18
+   847: 00000030     0 NOTYPE  GLOBAL DEFAULT  ABS __P5IN
+   848: 00003100     0 NOTYPE  WEAK   DEFAULT    1 _reset_vector__
+   849: 00003376     0 NOTYPE  GLOBAL DEFAULT    1 __ctors_start
+   850: 00003482     0 NOTYPE  GLOBAL DEFAULT    1 __xabi_udivmod64
+   851: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_12
+   852: 00000036     0 NOTYPE  GLOBAL DEFAULT  ABS __P6DIR
+   853: 0000700e    80 FUNC    GLOBAL DEFAULT    1 rpl_process_dao_ack
+   854: 00001130    12 OBJECT  GLOBAL DEFAULT    3 ctimer_process
+   855: 000010fa     0 NOTYPE  GLOBAL DEFAULT  ABS __CALDCO_12MHZ
+   856: 0000ba52    86 FUNC    GLOBAL DEFAULT    1 uip_udp_packet_sendto
+   857: 0000ac8c   112 FUNC    GLOBAL DEFAULT    1 uip_ds6_prefix_add
+   858: 0000003f     0 NOTYPE  GLOBAL DEFAULT  ABS __P8SEL
+   859: 000000d0     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1CTL0
+   860: 0000619a    16 FUNC    GLOBAL DEFAULT    1 nbr_table_unlock
+   861: 00004562    12 FUNC    GLOBAL DEFAULT    1 clock_delay
+   862: 0000a4ae   268 FUNC    GLOBAL DEFAULT    1 tcpip_ipv6_output
+   863: 000061ca    70 FUNC    GLOBAL DEFAULT    1 netstack_process_ip_callb
+   864: 00000018     0 NOTYPE  GLOBAL DEFAULT  ABS __P3IN
+   865: 00003110     0 NOTYPE  WEAK   DEFAULT    1 __do_copy_data
+   866: 0000c388   276 FUNC    GLOBAL DEFAULT    1 uiplib_ipaddr_snprint
+   867: 00007ba6   536 FUNC    GLOBAL DEFAULT    1 rpl_icmp6_dio_output
+   868: 000062aa    10 FUNC    GLOBAL DEFAULT    1 packetbuf_hdrlen
+   869: 00000150     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM8
+   870: 00002567     2 OBJECT  GLOBAL DEFAULT    4 rx_buf
+   871: 00007238   232 FUNC    GLOBAL DEFAULT    1 rpl_ext_header_srh_update
+   872: 00000142     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM1
+   873: 000000d7     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1TXBUF
+   874: 00001250     0 NOTYPE  GLOBAL DEFAULT    4 __bss_start
+   875: 00000014     0 NOTYPE  GLOBAL DEFAULT  ABS __P7REN
+   876: 000066ca    28 FUNC    GLOBAL DEFAULT    1 process_init
+   877: 0000d16a    92 FUNC    GLOBAL DEFAULT    1 memset
+   878: 0000ac1a   114 FUNC    GLOBAL DEFAULT    1 uip_ds6_list_loop
+   879: 0000313e   562 FUNC    GLOBAL DEFAULT    1 main
+   880: 00000176     0 NOTYPE  GLOBAL DEFAULT  ABS __TACCR2
+   881: 00006416    14 FUNC    GLOBAL DEFAULT    1 packetbuf_addr
+   882: 0000019a     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCR4
+   883: 0000c530    30 FUNC    GLOBAL DEFAULT    1 xmem_init
+   884: 00006424    14 FUNC    GLOBAL DEFAULT    1 packetbuf_holds_broadcast
+   885: 0000cf64    10 FUNC    GLOBAL DEFAULT    1 srand
+   886: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_13
+   887: 00006de0   414 FUNC    GLOBAL DEFAULT    1 rpl_process_dio
+   888: 000073ae   192 FUNC    GLOBAL DEFAULT    1 rpl_ext_header_remove
+   889: 0000bc3a    94 FUNC    GLOBAL DEFAULT    1 uip_remove_ext_hdr
+   890: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gpio_hal_arch_port_clear_
+   891: 000001d2     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA0SA
+   892: 00000170     0 NOTYPE  GLOBAL DEFAULT  ABS __TAR
+   893: 00000124     0 NOTYPE  GLOBAL DEFAULT  ABS __DMACTL1
+   894: 0000001e     0 NOTYPE  GLOBAL DEFAULT  ABS __P4DIR
+   895: 00003436     0 NOTYPE  GLOBAL DEFAULT    1 __ext_divmod32
+   896: 00005a2a    12 FUNC    GLOBAL DEFAULT    1 list_item_next
+   897: 00005c08    62 FUNC    GLOBAL DEFAULT    1 memb_alloc
+   898: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_27
+   899: 0000621e    76 FUNC    GLOBAL DEFAULT    1 node_id_z1_restore
+   900: 0000a97c    18 FUNC    GLOBAL DEFAULT    1 uip_ds6_neighbors_init
+   901: 000055b4    62 FUNC    GLOBAL DEFAULT    1 i2c_receive_n
+   902: 0000aed6    84 FUNC    GLOBAL DEFAULT    1 uip_ds6_addr_rm
+   903: 00003436     0 FUNC    GLOBAL DEFAULT    1 __divsi3
+   904: 00000162     0 NOTYPE  GLOBAL DEFAULT  ABS __TACCTL0
+   905: 00010000     0 NOTYPE  GLOBAL DEFAULT    6 _vectors_end
+   906: 00000154     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM10
+   907: 0000aeac    42 FUNC    GLOBAL DEFAULT    1 uip_ds6_maddr_lookup
+   908: 000011d6    12 OBJECT  GLOBAL DEFAULT    3 stack_check_process
+   909: 00002549     1 OBJECT  GLOBAL DEFAULT    4 uip_ext_bitmap
+   910: 0000499c    26 FUNC    GLOBAL DEFAULT    1 csma_output_init
+   911: 00002928     8 OBJECT  GLOBAL DEFAULT    4 node_mac
+   912: 0000ab04    60 FUNC    GLOBAL DEFAULT    1 uip_ds6_defrt_lookup
+   913: 000001ea     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA2SA
+   914: 0000629e     6 FUNC    GLOBAL DEFAULT    1 packetbuf_hdrptr
+   915: 0000002a     0 NOTYPE  GLOBAL DEFAULT  ABS __P2DIR
+   916: 00005c46    50 FUNC    GLOBAL DEFAULT    1 memb_free
+   917: 00000089     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL9
+   918: 0000017c     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB1I2COA
+   919: 0000008a     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL10
+   920: 000000db     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB1BR1
+   921: 00004e02    62 FUNC    GLOBAL DEFAULT    1 etimer_stop
+   922: 0000598e     6 FUNC    GLOBAL DEFAULT    1 list_init
+   923: 000037ae    42 FUNC    GLOBAL DEFAULT    1 uart0_rx_interrupt
+   924: 0000626a    20 FUNC    GLOBAL DEFAULT    1 node_id_init
+   925: 00000068     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB0CTL0
+   926: 0000002f     0 NOTYPE  GLOBAL DEFAULT  ABS __P2REN
+   927: 0000aac6     4 FUNC    GLOBAL DEFAULT    1 uip_ds6_route_lookup
+   928: 00000032     0 NOTYPE  GLOBAL DEFAULT  ABS __P5DIR
+   929: 00003ad6    26 FUNC    GLOBAL DEFAULT    1 cc2420_arch_init
+   930: 000001c2     0 NOTYPE  GLOBAL DEFAULT  ABS __DAC12_1CTL
+   931: 00004c2e     2 FUNC    GLOBAL DEFAULT    1 energest_flush
+   932: 0000b8a0   172 FUNC    GLOBAL DEFAULT    1 uip_sr_update_node
+   933: 0000003a     0 NOTYPE  GLOBAL DEFAULT  ABS __PAOUT
+   934: 000001a2     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12CTL1
+   935: 0000003c     0 NOTYPE  GLOBAL DEFAULT  ABS __PADIR
+   936: 00005744   226 FUNC    GLOBAL DEFAULT    1 link_stats_packet_sent
+   937: 000068d0    50 FUNC    GLOBAL DEFAULT    1 queuebuf_to_packetbuf
+   938: 0000c2de    70 FUNC    GLOBAL DEFAULT    1 uipbuf_search_header
+   939: 0000591c    42 FUNC    GLOBAL DEFAULT    1 link_stats_reset
+   940: 0000b332    12 FUNC    GLOBAL DEFAULT    1 uip_icmp6_register_input_
+   941: 0000006e     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB0RXBUF
+   942: 00006902     6 FUNC    GLOBAL DEFAULT    1 random_init
+   943: 00000000     0 NOTYPE  GLOBAL DEFAULT    6 __far_bss_start
+   944: 00004bfc    48 FUNC    GLOBAL DEFAULT    1 ctimer_expired
+   945: 000001a8     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12IV
+   946: 0000d5ef     4 OBJECT  GLOBAL DEFAULT    2 unc_mxconf
+   947: 000001dc     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA1CTL
+   948: 00002938     0 NOTYPE  GLOBAL DEFAULT    5 __noinit_start
+   949: 0000d330    14 OBJECT  GLOBAL DEFAULT    2 sicslowpan_driver
+   950: 000080ec    24 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_rank_via_nbr
+   951: 00005bd2    54 FUNC    GLOBAL DEFAULT    1 memb_init
+   952: 0000c336    20 FUNC    GLOBAL DEFAULT    1 uipbuf_set_attr
+   953: 00005c78    42 FUNC    GLOBAL DEFAULT    1 memb_inmemb
+   954: 0000a9da    12 FUNC    GLOBAL DEFAULT    1 uip_ds6_nbr_next
+   955: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_9
+   956: 0000005e     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0IRTCTL
+   957: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gpio_hal_arch_port_set_pi
+   958: 000049b6    16 FUNC    GLOBAL DEFAULT    1 csma_security_create_fram
+   959: 0000d71c     0 NOTYPE  GLOBAL DEFAULT  ABS __data_start_rom
+   960: 00000015     0 NOTYPE  GLOBAL DEFAULT  ABS __P8REN
+   961: 0000293a     0 NOTYPE  GLOBAL DEFAULT    5 __noinit_end
+   962: 000010fe     0 NOTYPE  GLOBAL DEFAULT  ABS __CALDCO_1MHZ
+   963: 00000067     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0TXBUF
+   964: 0000746e   614 FUNC    GLOBAL DEFAULT    1 rpl_ext_header_update
+   965: 0000018c     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCTL5
+   966: 00008104    12 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_get_lladdr
+   967: 000087f4    76 FUNC    GLOBAL DEFAULT    1 rpl_timers_stop_dag_timer
+   968: 000001de     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA1SAL
+   969: 0000b33e   310 FUNC    GLOBAL DEFAULT    1 uip_icmp6_error_output
+   970: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND spi_arch_has_lock
+   971: 0000396a   120 FUNC    GLOBAL DEFAULT    1 accm_init
+   972: 00000000     0 NOTYPE  GLOBAL DEFAULT    6 __far_bss_end
+   973: 0000310c     0 NOTYPE  WEAK   DEFAULT    1 __init_stack
+   974: 00005b38   134 FUNC    GLOBAL DEFAULT    1 mac_sequence_register_seq
+   975: 0000845e    60 FUNC    GLOBAL DEFAULT    1 rpl_timers_schedule_perio
+   976: 0000005d     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0ABCTL
+   977: 00000086     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL6
+   978: 0000b80e    74 FUNC    GLOBAL DEFAULT    1 uip_sr_is_addr_reachable
+   979: 00001190    34 OBJECT  GLOBAL DEFAULT    3 rpl_mrhof
+   980: 00004c2c     2 FUNC    GLOBAL DEFAULT    1 energest_init
+   981: 00004bd4    40 FUNC    GLOBAL DEFAULT    1 ctimer_stop
+   982: 0000a6b8    28 FUNC    GLOBAL DEFAULT    1 timer_set
+   983: 00000188     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCTL3
+   984: 0000a2e2    84 FUNC    GLOBAL DEFAULT    1 stack_check_get_usage
+   985: 000011e2    12 OBJECT  GLOBAL DEFAULT    3 tcpip_process
+   986: 00003ef6    48 FUNC    GLOBAL DEFAULT    1 cc2420_off
+   987: 00000019     0 NOTYPE  GLOBAL DEFAULT  ABS __P3OUT
+   988: 00006c2e    42 FUNC    GLOBAL DEFAULT    1 rpl_local_repair
+   989: 0000a6fe    28 FUNC    GLOBAL DEFAULT    1 timer_reset
+   990: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_30
+   991: 000001ca     0 NOTYPE  GLOBAL DEFAULT  ABS __DAC12_1DAT
+   992: 00007dbe   214 FUNC    GLOBAL DEFAULT    1 rpl_icmp6_dao_output
+   993: 00008840    16 FUNC    GLOBAL DEFAULT    1 rpl_timers_unschedule_sta
+   994: 0000ffc0    64 OBJECT  GLOBAL DEFAULT    6 __ivtbl_32
+   995: 000051f6   348 FUNC    GLOBAL DEFAULT    1 frame802154_parse
+   996: 00003376     0 NOTYPE  GLOBAL DEFAULT    1 __dtors_start
+   997: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_6
+   998: 00003376     0 NOTYPE  GLOBAL DEFAULT    1 __ctors_end
+   999: 00000132     0 NOTYPE  GLOBAL DEFAULT  ABS __MPYS
+  1000: 0000a490    30 FUNC    GLOBAL DEFAULT    1 tcpip_input
+  1001: 00000062     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0BR0
+  1002: 00005f8c    76 FUNC    GLOBAL DEFAULT    1 nbr_table_next
+  1003: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_22
+  1004: 00007e94    70 FUNC    GLOBAL DEFAULT    1 rpl_icmp6_dao_ack_output
+  1005: 0000aba6    54 FUNC    GLOBAL DEFAULT    1 uip_ds6_defrt_choose
+  1006: 00004ff6    50 FUNC    GLOBAL DEFAULT    1 frame802154_hdrlen
+  1007: 00003100     0 NOTYPE  GLOBAL DEFAULT  ABS __stack
+  1008: 00008bd6    42 FUNC    GLOBAL DEFAULT    1 sensors_changed
+  1009: 00002569     1 OBJECT  GLOBAL DEFAULT    4 transmit_data2
+  1010: 00007b44    46 FUNC    GLOBAL DEFAULT    1 rpl_icmp6_update_nbr_tabl
+  1011: 00000037     0 NOTYPE  GLOBAL DEFAULT  ABS __P6SEL
+  1012: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_1
+  1013: 000066e6   140 FUNC    GLOBAL DEFAULT    1 process_run
+  1014: 0000811a    10 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_get_link_sta
+  1015: 0000008c     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL12
+  1016: 00002548     1 OBJECT  GLOBAL DEFAULT    4 uip_last_proto
+  1017: 0000516a   140 FUNC    GLOBAL DEFAULT    1 frame802154_parse_fcf
+  1018: 0000d2ca    12 OBJECT  GLOBAL DEFAULT    2 framer_802154
+  1019: 00000000     0 NOTYPE  GLOBAL DEFAULT    6 __far_data_start
+  1020: 0000c34a    18 FUNC    GLOBAL DEFAULT    1 uipbuf_clear_attr
+  1021: 00001250     0 NOTYPE  GLOBAL DEFAULT    3 _edata
+  1022: 00001568     2 OBJECT  GLOBAL DEFAULT    4 process_current
+  1023: 0000acfc    66 FUNC    GLOBAL DEFAULT    1 uip_ds6_is_addr_onlink
+  1024: 0000293a     0 NOTYPE  GLOBAL DEFAULT  ABS _end
+  1025: 00000006     0 NOTYPE  GLOBAL DEFAULT  ABS __UC1IE
+  1026: 000011ee    12 OBJECT  GLOBAL DEFAULT    3 udp_server_process
+  1027: 0000256a     2 OBJECT  GLOBAL DEFAULT    4 rx_buf_ptr
+  1028: 00002434     2 OBJECT  GLOBAL DEFAULT    4 uip_ext_len
+  1029: 0000561e    20 FUNC    GLOBAL DEFAULT    1 i2c_transmit_n
+  1030: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND gpio_hal_arch_port_read_p
+  1031: 0000378c    34 FUNC    GLOBAL DEFAULT    1 timera0
+  1032: 00004dd2    14 FUNC    GLOBAL DEFAULT    1 etimer_expired
+  1033: 00004854   328 FUNC    GLOBAL DEFAULT    1 csma_output_packet
+  1034: 00000194     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCR1
+  1035: 00002933     4 OBJECT  GLOBAL DEFAULT    4 sensors_flags
+  1036: 0000af2a    70 FUNC    GLOBAL DEFAULT    1 uip_ds6_periodic
+  1037: 0000d34c     4 OBJECT  GLOBAL DEFAULT    2 autostart_processes
+  1038: 00006c86    34 FUNC    GLOBAL DEFAULT    1 rpl_dag_ready_to_advertis
+  1039: 00005946    34 FUNC    GLOBAL DEFAULT    1 link_stats_init
+  1040: 00006b9e   106 FUNC    GLOBAL DEFAULT    1 rpl_dag_periodic
+  1041: 00004170    72 FUNC    GLOBAL DEFAULT    1 cc2420_rssi
+  1042: 0000011e     0 NOTYPE  GLOBAL DEFAULT  ABS __TBIV
+  1043: 0000627e    26 FUNC    GLOBAL DEFAULT    1 packetbuf_hdrreduce
+  1044: 000001c0     0 NOTYPE  GLOBAL DEFAULT  ABS __DAC12_0CTL
+  1045: 00010000     0 NOTYPE  GLOBAL DEFAULT  ABS __far_data_load_start
+  1046: 000061aa    32 FUNC    GLOBAL DEFAULT    1 nbr_table_get_lladdr
+  1047: 0000d33e    14 OBJECT  GLOBAL DEFAULT    2 tmp102
+  1048: 00006b92    12 FUNC    GLOBAL DEFAULT    1 rpl_dag_poison_and_leave
+  1049: 0000015e     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM15
+  1050: 0000d86c     0 NOTYPE  GLOBAL DEFAULT  ABS __data_end_rom
+  1051: 00003478     0 FUNC    GLOBAL DEFAULT    1 __modsi3
+  1052: 000062b4    12 FUNC    GLOBAL DEFAULT    1 packetbuf_dataptr
+  1053: 00000134     0 NOTYPE  GLOBAL DEFAULT  ABS __MAC
+  1054: 0000a424    48 FUNC    GLOBAL DEFAULT    1 stimer_expired
+  1055: 00000058     0 NOTYPE  GLOBAL DEFAULT  ABS __BCSCTL2
+  1056: 0000809c    32 FUNC    GLOBAL DEFAULT    1 rpl_nbr_gc_get_worst
+  1057: 00003370     0 NOTYPE  WEAK   DEFAULT    1 _endless_loop__
+  1058: 00008256    84 FUNC    GLOBAL DEFAULT    1 rpl_neighbor_select_best
+  1059: 00000122     0 NOTYPE  GLOBAL DEFAULT  ABS __DMACTL0
+  1060: 0000001f     0 NOTYPE  GLOBAL DEFAULT  ABS __P4SEL
+  1061: 00000196     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCR2
+  1062: 00000041     0 NOTYPE  GLOBAL DEFAULT  ABS __P1SEL2
+  1063: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_15
+  1064: 00000022     0 NOTYPE  GLOBAL DEFAULT  ABS __P1DIR
+  1065: 00000146     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MEM3
+  1066: 0000124f     1 OBJECT  GLOBAL DEFAULT    3 prescale_lsb
+  1067: 0000bc16    36 FUNC    GLOBAL DEFAULT    1 uip_init
+  1068: 0000afd4   154 FUNC    GLOBAL DEFAULT    1 uip_ds6_select_src
+  1069: 00004520    26 FUNC    GLOBAL DEFAULT    1 clock_time
+  1070: 0000005f     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA0IRRCTL
+  1071: 00000010     0 NOTYPE  GLOBAL DEFAULT  ABS __P3REN
+  1072: 000055fc    34 FUNC    GLOBAL DEFAULT    1 i2c_enable
+  1073: 00000164     0 NOTYPE  GLOBAL DEFAULT  ABS __TACCTL1
+  1074: 0000a9d0    10 FUNC    GLOBAL DEFAULT    1 uip_ds6_nbr_head
+  1075: 00006444   186 FUNC    GLOBAL DEFAULT    1 platform_init_stage_two
+  1076: 0000255c     2 OBJECT  GLOBAL DEFAULT    4 cc2420_sfd_end_time
+  1077: 000000d3     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1BR1
+  1078: 00000000     0 NOTYPE  GLOBAL DEFAULT  ABS __far_bss_size
+  1079: 0000006f     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB0TXBUF
+  1080: 0000705e    38 FUNC    GLOBAL DEFAULT    1 rpl_process_hbh
+  1081: 0000ad3e    42 FUNC    GLOBAL DEFAULT    1 uip_ds6_addr_lookup
+  1082: 000010ff     0 NOTYPE  GLOBAL DEFAULT  ABS __CALBC1_1MHZ
+  1083: 00000055     0 NOTYPE  GLOBAL DEFAULT  ABS __SVSCTL
+  1084: 0000a408    28 FUNC    GLOBAL DEFAULT    1 stimer_set
+  1085: 0000a476    26 FUNC    GLOBAL DEFAULT    1 udp_new
+  1086: 0000293a     0 NOTYPE  GLOBAL DEFAULT  ABS _stack
+  1087: 00003110     0 NOTYPE  WEAK   DEFAULT    1 __low_level_init
+  1088: 0000bc0c    10 FUNC    GLOBAL DEFAULT    1 uip_udpchksum
+  1089: 0000636a    18 FUNC    GLOBAL DEFAULT    1 packetbuf_clear
+  1090: 00006ca8   312 FUNC    GLOBAL DEFAULT    1 rpl_dag_update_state
+  1091: 000011b2     2 OBJECT  GLOBAL DEFAULT    3 rpl_neighbors
+  1092: 00003778     0 NOTYPE  GLOBAL DEFAULT    1 __isr_17
+  1093: 00005ca2    38 FUNC    GLOBAL DEFAULT    1 memb_numfree
+  1094: 00002931     1 OBJECT  GLOBAL DEFAULT    4 sensors_event
+  1095: 00000011     0 NOTYPE  GLOBAL DEFAULT  ABS __P4REN
+  1096: 00008ae8     6 FUNC    GLOBAL DEFAULT    1 rtimer_init
+  1097: 00001100     0 NOTYPE  GLOBAL DEFAULT    3 __data_start
+  1098: 000000d1     0 NOTYPE  GLOBAL DEFAULT  ABS __UCA1CTL1
+  1099: 0000018e     0 NOTYPE  GLOBAL DEFAULT  ABS __TBCCTL6
+  1100: 00003376     0 NOTYPE  WEAK   DEFAULT    1 __isr_21
+  1101: 0000d25a    14 OBJECT  GLOBAL DEFAULT    2 button_sensor
+  1102: 00005cc8    40 FUNC    GLOBAL DEFAULT    1 msp430_init_dco
+  1103: 0000c4d8    18 FUNC    GLOBAL DEFAULT    1 watchdog_init
+  1104: 00005a36    50 FUNC    GLOBAL DEFAULT    1 log_6addr
+  1105: 0000a1c4    50 FUNC    GLOBAL DEFAULT    1 simple_udp_sendto
+  1106: 0000aab0    18 FUNC    GLOBAL DEFAULT    1 uip_ds6_route_init
+  1107: 000001e2     0 NOTYPE  GLOBAL DEFAULT  ABS __DMA1DA
+  1108: 00000120     0 NOTYPE  GLOBAL DEFAULT  ABS __WDTCTL
+  1109: 00003a3a    22 FUNC    GLOBAL DEFAULT    1 autostart_start
+  1110: 00000083     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL3
+  1111: 00000000     0 NOTYPE  GLOBAL DEFAULT  ABS __IE1
+  1112: 0000893c    30 FUNC    GLOBAL DEFAULT    1 rpl_link_callback
+  1113: 000085b4   126 FUNC    GLOBAL DEFAULT    1 rpl_timers_notify_dao_ack
+  1114: 000059aa    52 FUNC    GLOBAL DEFAULT    1 list_remove
+  1115: 000000d9     0 NOTYPE  GLOBAL DEFAULT  ABS __UCB1CTL1
+  1116: 0000122c     8 OBJECT  GLOBAL DEFAULT    3 sensors
+  1117: 00000059     0 NOTYPE  GLOBAL DEFAULT  ABS __CACTL1
+  1118: 000010f6     0 NOTYPE  GLOBAL DEFAULT  ABS __TLV_DCO_30_TAG
+  1119: 00000020     0 NOTYPE  GLOBAL DEFAULT  ABS __P1IN
+  1120: 0000001c     0 NOTYPE  GLOBAL DEFAULT  ABS __P4IN
+  1121: 00006342    40 FUNC    GLOBAL DEFAULT    1 packetbuf_attr_clear
+  1122: 0000008b     0 NOTYPE  GLOBAL DEFAULT  ABS __ADC12MCTL11
+  1123: 00005826   246 FUNC    GLOBAL DEFAULT    1 link_stats_input_callback
+  1124: 000011ca    12 OBJECT  GLOBAL DEFAULT    3 simple_udp_process
+  1125: 0000013e     0 NOTYPE  GLOBAL DEFAULT  ABS __SUMEXT
+  1126: 000028f0     2 OBJECT  GLOBAL DEFAULT    4 uip_slen
+  1127: 00000031     0 NOTYPE  GLOBAL DEFAULT  ABS __P5OUT
+  1128: 0000683c    10 FUNC    GLOBAL DEFAULT    1 queuebuf_numfree
+  1129: 000028f2    52 OBJECT  GLOBAL DEFAULT    4 uip_udp_conns
+  1130: 0000c1fc    28 FUNC    GLOBAL DEFAULT    1 uipbuf_add_ext_hdr
+  1131: 00005bbe    20 FUNC    GLOBAL DEFAULT    1 mac_call_sent_callback
+  1132: 0000b9f0    56 FUNC    GLOBAL DEFAULT    1 uip_sr_free_all
+  1133: 000056b2     6 FUNC    GLOBAL DEFAULT    1 leds_init
+  1134: 00006432    18 FUNC    GLOBAL DEFAULT    1 platform_init_stage_one
+===== NM -n =====
+         U button_hal_button_count
+         U button_hal_buttons
+         U gpio_hal_arch_init
+         U gpio_hal_arch_port_clear_pin
+         U gpio_hal_arch_port_interrupt_enable
+         U gpio_hal_arch_port_pin_cfg_set
+         U gpio_hal_arch_port_pin_set_input
+         U gpio_hal_arch_port_read_pin
+         U gpio_hal_arch_port_read_pins
+         U gpio_hal_arch_port_set_pin
+         U gpio_hal_arch_port_write_pin
+         U gpio_hal_arch_port_write_pins
+         U spi_arch_has_lock
+00000000 A __IE1
+00000000 T __far_bss_end
+00000000 A __far_bss_size
+00000000 T __far_bss_start
+00000000 A __far_data_size
+00000000 T __far_data_start
+00000000 T _efardata
+00000000 A _far_end
+00000001 A __IE2
+00000002 A __IFG1
+00000003 A __IFG2
+00000006 A __UC1IE
+00000007 A __UC1IFG
+00000010 A __P3REN
+00000011 A __P4REN
+00000012 A __P5REN
+00000013 A __P6REN
+00000014 A __P7REN
+00000014 A __PAREN
+00000015 A __P8REN
+00000018 A __P3IN
+00000019 A __P3OUT
+0000001a A __P3DIR
+0000001b A __P3SEL
+0000001c A __P4IN
+0000001d A __P4OUT
+0000001e A __P4DIR
+0000001f A __P4SEL
+00000020 A __P1IN
+00000021 A __P1OUT
+00000022 A __P1DIR
+00000023 A __P1IFG
+00000024 A __P1IES
+00000025 A __P1IE
+00000026 A __P1SEL
+00000027 A __P1REN
+00000028 A __P2IN
+00000029 A __P2OUT
+0000002a A __P2DIR
+0000002b A __P2IFG
+0000002c A __P2IES
+0000002d A __P2IE
+0000002e A __P2SEL
+0000002f A __P2REN
+00000030 A __P5IN
+00000031 A __P5OUT
+00000032 A __P5DIR
+00000033 A __P5SEL
+00000034 A __P6IN
+00000035 A __P6OUT
+00000036 A __P6DIR
+00000037 A __P6SEL
+00000038 A __P7IN
+00000038 A __PAIN
+00000039 A __P8IN
+0000003a A __P7OUT
+0000003a A __PAOUT
+0000003b A __P8OUT
+0000003c A __P7DIR
+0000003c A __PADIR
+0000003d A __P8DIR
+0000003e A __P7SEL
+0000003e A __PASEL
+0000003f A __P8SEL
+00000041 A __P1SEL2
+00000045 A __P5SEL2
+00000053 A __BCSCTL3
+00000055 A __SVSCTL
+00000056 A __DCOCTL
+00000057 A __BCSCTL1
+00000058 A __BCSCTL2
+00000059 A __CACTL1
+0000005a A __CACTL2
+0000005b A __CAPD
+0000005d A __UCA0ABCTL
+0000005e A __UCA0IRTCTL
+0000005f A __UCA0IRRCTL
+00000060 A __UCA0CTL0
+00000061 A __UCA0CTL1
+00000062 A __UCA0BR0
+00000063 A __UCA0BR1
+00000064 A __UCA0MCTL
+00000065 A __UCA0STAT
+00000066 A __UCA0RXBUF
+00000067 A __UCA0TXBUF
+00000068 A __UCB0CTL0
+00000069 A __UCB0CTL1
+0000006a A __UCB0BR0
+0000006b A __UCB0BR1
+0000006c A __UCB0I2CIE
+0000006d A __UCB0STAT
+0000006e A __UCB0RXBUF
+0000006f A __UCB0TXBUF
+00000080 A __ADC12MCTL0
+00000081 A __ADC12MCTL1
+00000082 A __ADC12MCTL2
+00000083 A __ADC12MCTL3
+00000084 A __ADC12MCTL4
+00000085 A __ADC12MCTL5
+00000086 A __ADC12MCTL6
+00000087 A __ADC12MCTL7
+00000088 A __ADC12MCTL8
+00000089 A __ADC12MCTL9
+0000008a A __ADC12MCTL10
+0000008b A __ADC12MCTL11
+0000008c A __ADC12MCTL12
+0000008d A __ADC12MCTL13
+0000008e A __ADC12MCTL14
+0000008f A __ADC12MCTL15
+000000cd A __UCA1ABCTL
+000000ce A __UCA1IRTCTL
+000000cf A __UCA1IRRCTL
+000000d0 A __UCA1CTL0
+000000d1 A __UCA1CTL1
+000000d2 A __UCA1BR0
+000000d3 A __UCA1BR1
+000000d4 A __UCA1MCTL
+000000d5 A __UCA1STAT
+000000d6 A __UCA1RXBUF
+000000d7 A __UCA1TXBUF
+000000d8 A __UCB1CTL0
+000000d9 A __UCB1CTL1
+000000da A __UCB1BR0
+000000db A __UCB1BR1
+000000dc A __UCB1I2CIE
+000000dd A __UCB1STAT
+000000de A __UCB1RXBUF
+000000df A __UCB1TXBUF
+00000118 A __UCB0I2COA
+0000011a A __UCB0I2CSA
+0000011e A __TBIV
+00000120 A __WDTCTL
+00000122 A __DMACTL0
+00000124 A __DMACTL1
+00000126 A __DMAIV
+00000128 A __FCTL1
+0000012a A __FCTL2
+0000012c A __FCTL3
+0000012e A __TAIV
+00000130 A __MPY
+00000132 A __MPYS
+00000134 A __MAC
+00000136 A __MACS
+00000138 A __OP2
+0000013a A __RESLO
+0000013c A __RESHI
+0000013e A __SUMEXT
+00000140 A __ADC12MEM0
+00000142 A __ADC12MEM1
+00000144 A __ADC12MEM2
+00000146 A __ADC12MEM3
+00000148 A __ADC12MEM4
+0000014a A __ADC12MEM5
+0000014c A __ADC12MEM6
+0000014e A __ADC12MEM7
+00000150 A __ADC12MEM8
+00000150 A __data_size
+00000152 A __ADC12MEM9
+00000154 A __ADC12MEM10
+00000156 A __ADC12MEM11
+00000158 A __ADC12MEM12
+0000015a A __ADC12MEM13
+0000015c A __ADC12MEM14
+0000015e A __ADC12MEM15
+00000160 A __TACTL
+00000162 A __TACCTL0
+00000164 A __TACCTL1
+00000166 A __TACCTL2
+00000170 A __TAR
+00000172 A __TACCR0
+00000174 A __TACCR1
+00000176 A __TACCR2
+0000017c A __UCB1I2COA
+0000017e A __UCB1I2CSA
+00000180 A __TBCTL
+00000182 A __TBCCTL0
+00000184 A __TBCCTL1
+00000186 A __TBCCTL2
+00000188 A __TBCCTL3
+0000018a A __TBCCTL4
+0000018c A __TBCCTL5
+0000018e A __TBCCTL6
+00000190 A __TBR
+00000192 A __TBCCR0
+00000194 A __TBCCR1
+00000196 A __TBCCR2
+00000198 A __TBCCR3
+0000019a A __TBCCR4
+0000019c A __TBCCR5
+0000019e A __TBCCR6
+000001a0 A __ADC12CTL0
+000001a2 A __ADC12CTL1
+000001a4 A __ADC12IFG
+000001a6 A __ADC12IE
+000001a8 A __ADC12IV
+000001be A __FCTL4
+000001c0 A __DAC12_0CTL
+000001c2 A __DAC12_1CTL
+000001c8 A __DAC12_0DAT
+000001ca A __DAC12_1DAT
+000001d0 A __DMA0CTL
+000001d2 A __DMA0SA
+000001d2 A __DMA0SAL
+000001d6 A __DMA0DA
+000001d6 A __DMA0DAL
+000001da A __DMA0SZ
+000001dc A __DMA1CTL
+000001de A __DMA1SA
+000001de A __DMA1SAL
+000001e2 A __DMA1DA
+000001e2 A __DMA1DAL
+000001e6 A __DMA1SZ
+000001e8 A __DMA2CTL
+000001ea A __DMA2SA
+000001ea A __DMA2SAL
+000001ee A __DMA2DA
+000001ee A __DMA2DAL
+000001f2 A __DMA2SZ
+000010c0 A __TLV_CHECKSUM
+000010da A __TLV_ADC12_1_TAG
+000010db A __TLV_ADC12_1_LEN
+000010f6 A __TLV_DCO_30_TAG
+000010f7 A __TLV_DCO_30_LEN
+000010f8 A __CALDCO_16MHZ
+000010f9 A __CALBC1_16MHZ
+000010fa A __CALDCO_12MHZ
+000010fb A __CALBC1_12MHZ
+000010fc A __CALDCO_8MHZ
+000010fd A __CALBC1_8MHZ
+000010fe A __CALDCO_1MHZ
+000010ff A __CALBC1_1MHZ
+00001100 D __data_start
+00001100 D accmeter_process
+0000110c D cc2420_process
+00001118 d neighbor_memb
+00001120 d packet_memb
+00001128 d metadata_memb
+00001130 D ctimer_process
+0000113c D etimer_process
+00001148 d mac_pan_id
+0000114a d link_stats_struct
+00001154 D curr_log_level_main
+00001156 d cur_break
+00001158 d neighbor_addr_mem
+00001160 d buframmem
+00001168 d bufmem
+00001170 d dis_handler
+00001178 d dio_handler
+00001180 d dao_handler
+00001188 d dao_ack_handler
+00001190 D rpl_mrhof
+000011b2 D rpl_neighbors
+000011b4 d rpl_neighbors_struct
+000011be D sensors_process
+000011ca D simple_udp_process
+000011d6 D stack_check_process
+000011e2 D tcpip_process
+000011ee D udp_server_process
+000011fa d ds6_neighbors_struct
+00001204 d defaultroutermemb
+0000120c d echo_request_handler
+00001214 d echo_reply_handler
+0000121c d ns_input_handler
+00001224 d nodememb
+0000122c D sensors
+00001234 d next
+00001238 d adxl345_default_settings
+0000124e d send_on_cca
+0000124f D prescale_lsb
+00001250 B __bss_start
+00001250 D _edata
+00001250 b int1_mask
+00001252 b int2_mask
+00001254 b suppressTimer1
+0000125c b suppressTimer2
+00001264 b debouncetimer
+0000126c b last_packet_timestamp
+0000126e b prev_MDMCTRL1
+00001270 b prev_DACTST
+00001272 b channel
+00001274 b last_tar
+00001276 b count
+0000127a b seconds
+0000127e b neighbor_list_list
+00001280 b neighbor_memb_memb_mem
+000012cc b packet_memb_memb_mem
+000012fc b metadata_memb_memb_mem
+0000133c b ctimer_list_list
+0000133e b timerlist
+00001340 b next_expiration
+00001344 b _link_stats_mem
+00001394 b received_seqnos
+00001474 b nbr_table_keys_list
+00001476 b num_tables
+00001478 b all_tables
+00001488 b neighbor_addr_mem_memb_mem
+000014d8 b ip_processor_list_list
+000014da B node_id
+000014dc b bufptr
+000014de b buflen
+000014e0 b packetbuf_aligned
+00001560 b mgt_timer
+00001568 B process_current
+0000156a B process_list
+0000156c b events
+0000159c b buframmem_memb_mem
+000016e8 A __bss_size
+00001aec b bufmem_memb_mem
+00001afc b root_ipaddr.3788
+00001b0c b _rpl_neighbors_mem
+00001b4c b dis_timer
+00001b62 b periodic_timer
+00001b78 b next_rtimer
+00001b7a b i.2067
+00001b7c b events.2068
+00001b7e b callback
+00001b80 b addr_contexts
+00001b8a b packetbuf_ptr
+00001b8c b mac_max_payload
+00001b8e b iphc_ptr
+00001b90 b context
+00001b92 b last_tx_status
+00001b94 b my_tag
+00001b96 b packetbuf_payload_len
+00001b98 b frag_info
+00001d00 b frag_buf
+00002258 b stack_top.2424
+0000225a b et.2446
+00002266 b periodic
+00002272 b uart0_input_handler
+00002276 b udp_conn
+00002294 b _ds6_neighbors_mem
+00002324 b defaultrouterlist_list
+00002326 b defaultroutermemb_memb_mem
+0000235e b default_prefix
+0000236e b loc_fipaddr
+0000237e b locaddr
+00002380 b locprefix
+00002382 b locmaddr
+00002384 b input_handler_list_list
+00002386 b tmp_ipaddr
+00002396 b echo_reply_callback_list_list
+00002398 b nd6_opt_llao
+0000239a b nd6_opt_offset
+0000239c b nbr
+0000239e b addr
+000023a0 b num_nodes
+000023a2 b nodelist_list
+000023a4 b nodememb_memb_mem
+00002434 B uip_ext_len
+00002436 b lastport
+00002438 b uipbuf_attrs
+00002448 b uipbuf_default_attrs
+00002458 b counter
+0000245a b destination_
+0000245c b available_
+0000245e b enabled
+0000245f b poll_mode
+00002460 b locked
+00002461 b lock_on
+00002462 b lock_off
+00002463 b receive_on
+00002464 b was_on
+00002465 b neighbor_memb_memb_used
+00002467 b packet_memb_memb_used
+0000246f b metadata_memb_memb_used
+00002477 b initialized
+00002478 b tx_byte_tot
+00002479 b rx_byte_tot
+0000247a B prescale_msb
+0000247b b mac_dsn
+0000247c b used_map
+00002484 b locked_map
+0000248c b neighbor_addr_mem_memb_used
+00002494 b hdrlen
+00002495 b poll_requested
+00002496 b lastevent
+00002497 b fevent
+00002498 b nevents
+00002499 b buframmem_memb_used
+000024a1 b bufmem_memb_used
+000024a9 b initialized.3799
+000024aa b rpl_leaf_only
+000024ab b num_sensors
+000024ac b uncomp_hdr_len
+000024ad b packetbuf_hdr_len
+000024ae b curr_page
+000024af b databuffer
+0000253b b started
+0000253c b enabled
+0000253d b transmitting
+0000253e b defaultroutermemb_memb_used
+00002540 b nodememb_memb_used
+00002548 B uip_last_proto
+00002549 B uip_ext_bitmap
+0000254a B accm_int2_cb
+0000254e B accm_int1_cb
+00002552 B cc2420_last_rssi
+00002554 B cc2420_sfd_start_time
+00002556 B cc2420_last_correlation
+00002558 B cc2420_authority_level_of_sender
+0000255a B cc2420_sfd_counter
+0000255c B cc2420_sfd_end_time
+0000255e B transmit_data1
+0000255f B rx_byte_ctr
+00002560 B tx_buf_ptr
+00002562 B tx_byte_ctr
+00002564 B i
+00002566 B receive_data
+00002567 B rx_buf
+00002569 B transmit_data2
+0000256a B rx_buf_ptr
+0000256c B periodic_timer
+00002582 B linkaddr_node_addr
+0000258a B msp430_dco_required
+0000258c B packetbuf_addrs
+0000259c B packetbuf_attrs
+000025b4 B curr_instance
+000026c0 B rpl_multicast_addr
+000026d0 B uip_ds6_timer_ra
+000026d8 B uip_ds6_if
+000027e8 B uip_ds6_netif_addr_list_offset
+000027e9 B uip_ds6_addr_size
+000027ea B uip_ds6_prefix_list
+00002844 B uip_ds6_timer_periodic
+00002850 B uip_len
+00002852 B uip_sappdata
+00002854 B uip_lladdr
+0000285c B uip_aligned_buf
+000028e8 B uip_flags
+000028ea B uip_udp_conn
+000028ec B uip_appdata
+000028ee B uip_conn
+000028f0 B uip_slen
+000028f2 B uip_udp_conns
+00002926 B bufferPointer
+00002928 B node_mac
+00002930 B process_maxevents
+00002931 B sensors_event
+00002932 B tcpip_event
+00002933 B sensors_flags
+00002938 B __bss_end
+00002938 B __noinit_start
+00002938 B __wdt_clear_value
+0000293a B __noinit_end
+0000293a A _end
+0000293a A _stack
+00003100 A __stack
+00003100 W __watchdog_support
+00003100 W _reset_vector__
+0000310c W __init_stack
+00003110 W __do_copy_data
+00003110 W __low_level_init
+00003128 W __do_clear_bss
+0000313e T main
+00003370 W __stop_progExec__
+00003370 W _endless_loop__
+00003376 t __br_unexpected_
+00003376 T __ctors_end
+00003376 T __ctors_start
+00003376 T __dtors_end
+00003376 T __dtors_start
+00003376 W __isr_0
+00003376 W __isr_1
+00003376 W __isr_10
+00003376 W __isr_11
+00003376 W __isr_12
+00003376 W __isr_13
+00003376 W __isr_14
+00003376 W __isr_15
+00003376 W __isr_2
+00003376 W __isr_20
+00003376 W __isr_21
+00003376 W __isr_22
+00003376 W __isr_27
+00003376 W __isr_29
+00003376 W __isr_3
+00003376 W __isr_30
+00003376 W __isr_4
+00003376 W __isr_5
+00003376 W __isr_6
+00003376 W __isr_7
+00003376 W __isr_8
+00003376 W __isr_9
+0000337a W _unexpected_
+0000337c T __mulsi3
+000033a2 T __ext_udivmod16
+000033a2 T __udivhi3
+000033bc T __umodhi3
+000033c4 T __divhi3
+000033c4 T __ext_divmod16
+000033f6 T __modhi3
+000033fe T __ext_udivmod32
+000033fe T __udivsi3
+0000342c T __umodsi3
+00003436 T __divsi3
+00003436 T __ext_divmod32
+00003478 T __modsi3
+00003482 T __xabi_udivmod64
+000034d4 T __udivdi3
+000034ee T __umoddi3
+00003510 T __udivmoddi4
+0000353e T __isr_18
+0000353e T port1_isr
+000035c2 T __isr_19
+000035c2 T irq_p2
+000035fe T __isr_28
+000035fe T cc2420_timerb1_interrupt
+00003624 T __isr_24
+00003624 T timera1
+000036f4 T __isr_16
+000036f4 T i2c_tx_interrupt
+00003778 T __isr_17
+00003778 T i2c_rx_interrupt
+0000378c T __isr_25
+0000378c T timera0
+000037ae T __isr_23
+000037ae T uart0_rx_interrupt
+000037d8 T __isr_26
+000037d8 T watchdog_interrupt
+000037de t status
+000037f0 t accm_write_reg
+0000381e t accm_write_stream
+00003848 t accm_read_reg
+0000389c t process_thread_accmeter_process
+000038f2 t accm_read_axis.part.0
+0000394c t value
+0000396a T accm_init
+000039e2 T accm_stop
+00003a14 t configure
+00003a3a T autostart_start
+00003a50 t status
+00003a68 t value
+00003a88 t configure
+00003ad6 T cc2420_arch_init
+00003af0 t get_object
+00003af4 t set_object
+00003af8 t strobe
+00003b12 t getreg
+00003b58 t setreg
+00003b9c t write_ram
+00003c0e t write_fifo_buf
+00003c46 t get_status
+00003c64 t on
+00003c7e t cc2420_receiving_packet
+00003c88 t pending_packet
+00003c92 t wait_for_transmission
+00003cb4 t wait_for_status
+00003cd8 t getrxdata
+00003d24 t flushrx
+00003d3e t off
+00003d66 t RELEASE_LOCK
+00003d8e t set_frame_filtering
+00003dbe t set_auto_ack
+00003dee t set_poll_mode
+00003e1a t cc2420_prepare
+00003e5c T cc2420_on
+00003e7e t cc2420_transmit
+00003ee4 t cc2420_send
+00003ef6 T cc2420_off
+00003f26 t cc2420_cca
+00003f7a t cc2420_read
+00004034 t process_thread_cc2420_process
+0000408a T cc2420_set_channel
+000040c4 T cc2420_set_pan_addr
+00004110 T cc2420_interrupt
+00004126 T cc2420_set_txpower
+00004152 T cc2420_get_txpower
+00004170 T cc2420_rssi
+000041b8 t get_value
+000042d6 T cc2420_set_cca_threshold
+000042ec t set_value
+00004436 T cc2420_init
+00004520 T clock_time
+0000453a T clock_init
+00004562 T clock_delay
+0000456e T clock_wait
+00004592 T clock_seconds
+000045ac T init_platform
+000045b8 t schedule_transmission
+0000461e t tx_done
+000046a4 t transmit_from_queue
+00004854 T csma_output_packet
+0000499c T csma_output_init
+000049b6 T csma_security_create_frame
+000049c6 T csma_security_parse_frame
+000049cc t on
+000049d2 t off
+000049d8 t max_payload
+00004a10 t send_packet
+00004a16 t input_packet
+00004a76 t init
+00004a96 t process_thread_ctimer_process
+00004b36 T ctimer_init
+00004b4e T ctimer_set_with_process
+00004b98 T ctimer_set
+00004ba8 T ctimer_reset
+00004bd4 T ctimer_stop
+00004bfc T ctimer_expired
+00004c2c T energest_init
+00004c2e T energest_flush
+00004c30 t update_time
+00004ca0 T etimer_request_poll
+00004caa t process_thread_etimer_process
+00004d6e t add_timer
+00004dae T etimer_set
+00004dc0 T etimer_reset
+00004dd2 T etimer_expired
+00004de0 T etimer_pending
+00004dec T etimer_next_expiration_time
+00004e02 T etimer_stop
+00004e40 T frame802154_get_pan_id
+00004e46 T frame802154_has_panid
+00004f26 t field_len
+00004fce T frame802154_is_broadcast_addr
+00004ff6 T frame802154_hdrlen
+00005028 T frame802154_create_fcf
+00005096 T frame802154_create
+0000516a T frame802154_parse_fcf
+000051f6 T frame802154_parse
+00005352 t parse
+000053f0 T framer_802154_setup_params
+000054a0 t create_frame
+0000553e t create
+00005546 t hdr_length
+0000554e T i2c_receiveinit
+00005584 T i2c_transmitinit
+000055b4 T i2c_receive_n
+000055f2 T i2c_busy
+000055fc T i2c_enable
+0000561e T i2c_transmit_n
+00005632 T leds_arch_init
+00005640 T leds_arch_get
+00005674 T leds_arch_set
+000056b2 T leds_init
+000056b8 T leds_on
+000056ca T leds_off
+000056dc t periodic
+00005708 T link_stats_from_lladdr
+00005714 T link_stats_is_fresh
+00005744 T link_stats_packet_sent
+00005826 T link_stats_input_callback
+0000591c T link_stats_reset
+00005946 T link_stats_init
+00005968 T linkaddr_copy
+00005970 T linkaddr_cmp
+00005982 T linkaddr_set_node_addr
+0000598e T list_init
+00005994 T list_head
+00005998 T list_tail
+000059aa T list_remove
+000059de T list_push
+000059f4 T list_add
+00005a1a T list_length
+00005a2a T list_item_next
+00005a36 T log_6addr
+00005a68 T log_lladdr
+00005aa8 T mac_sequence_init
+00005ab2 T mac_sequence_set_dsn
+00005aca T mac_sequence_is_duplicate
+00005b38 T mac_sequence_register_seqno
+00005bbe T mac_call_sent_callback
+00005bd2 T memb_init
+00005c08 T memb_alloc
+00005c46 T memb_free
+00005c78 T memb_inmemb
+00005ca2 T memb_numfree
+00005cc8 T msp430_init_dco
+00005cf0 T splhigh_
+00005cfa T msp430_sync_dco
+00005d68 T msp430_cpu_init
+00005d96 t item_from_index
+00005dc0 t index_from_key
+00005de6 t index_from_item
+00005e04 t nbr_set_bit
+00005e54 t index_from_lladdr
+00005e92 t nbr_get_bit.constprop.3
+00005ebe t remove_key
+00005f2e T nbr_table_is_registered
+00005f50 T nbr_table_register
+00005f8c T nbr_table_next
+00005fd8 T nbr_table_head
+0000600e T nbr_table_get_from_lladdr
+00006036 t entry_is_allowed.isra.2
+000060ae T nbr_table_add_lladdr
+00006160 T nbr_table_remove
+0000618a T nbr_table_lock
+0000619a T nbr_table_unlock
+000061aa T nbr_table_get_lladdr
+000061ca T netstack_process_ip_callback
+00006210 T netstack_init
+0000621e T node_id_z1_restore
+0000626a T node_id_init
+0000627e T packetbuf_hdrreduce
+00006298 T packetbuf_set_datalen
+0000629e T packetbuf_hdrptr
+000062a4 T packetbuf_datalen
+000062aa T packetbuf_hdrlen
+000062b4 T packetbuf_dataptr
+000062c0 T packetbuf_copyto
+000062fa T packetbuf_totlen
+00006306 T packetbuf_hdralloc
+00006342 T packetbuf_attr_clear
+0000636a T packetbuf_clear
+0000637c T packetbuf_copyfrom
+000063a6 T packetbuf_attr_copyto
+000063c8 T packetbuf_attr_copyfrom
+000063ec T packetbuf_set_attr
+000063f8 T packetbuf_attr
+00006402 T packetbuf_set_addr
+00006416 T packetbuf_addr
+00006424 T packetbuf_holds_broadcast
+00006432 T platform_init_stage_one
+00006444 T platform_init_stage_two
+000064fe T platform_init_stage_three
+00006570 T platform_idle
+000065c4 t call_process
+00006604 t exit_process
+0000668c t do_poll
+000066bc T process_alloc_event
+000066ca T process_init
+000066e6 T process_run
+00006772 T process_nevents
+00006780 T process_post
+000067ca T process_post_synch
+000067dc T process_start
+00006812 T process_poll
+0000682a T queuebuf_init
+0000683c T queuebuf_numfree
+00006846 T queuebuf_new_from_packetbuf
+00006894 T queuebuf_update_attr_from_packetbuf
+000068a6 T queuebuf_free
+000068d0 T queuebuf_to_packetbuf
+00006902 T random_init
+00006908 T random_rand
+0000690e T rpl_dag_root_set_prefix
+0000696c T rpl_dag_root_start
+000069ee T rpl_dag_root_is_root
+00006a02 t init_dag
+00006a7a t process_dio_init_dag
+00006b2a T rpl_dag_get_root_ipaddr
+00006b48 T rpl_dag_leave
+00006b92 T rpl_dag_poison_and_leave
+00006b9e T rpl_dag_periodic
+00006c08 T rpl_is_addr_in_our_dag
+00006c2e T rpl_local_repair
+00006c58 T rpl_global_repair
+00006c86 T rpl_dag_ready_to_advertise
+00006ca8 T rpl_dag_update_state
+00006de0 T rpl_process_dio
+00006f7e T rpl_process_dis
+00006fa8 T rpl_process_dao
+0000700e T rpl_process_dao_ack
+0000705e T rpl_process_hbh
+00007084 T rpl_dag_init_root
+00007130 T rpl_dag_init
+00007140 t update_hbh_header
+0000718a T rpl_ext_header_srh_get_next_hop
+00007238 T rpl_ext_header_srh_update
+00007320 T rpl_ext_header_hbh_update
+000073ae T rpl_ext_header_remove
+0000746e T rpl_ext_header_update
+000076d4 t get32
+00007712 t set32
+0000773c t get16
+0000774a t set16
+0000775a t dao_ack_input
+0000778a t dao_input
+000078b2 t dio_input
+00007b26 t dis_input
+00007b44 T rpl_icmp6_update_nbr_table
+00007b72 T rpl_icmp6_dis_output
+00007ba6 T rpl_icmp6_dio_output
+00007dbe T rpl_icmp6_dao_output
+00007e94 T rpl_icmp6_dao_ack_output
+00007eda T rpl_icmp6_init
+00007efc t reset
+00007efe t update_metric_container
+00007f04 t nbr_link_metric
+00007f16 t nbr_has_usable_link
+00007f2a t nbr_path_cost
+00007f5e t within_hysteresis
+00007faa t nbr_is_acceptable_parent
+00007fd2 t rank_via_nbr
+00008012 t best_parent
+00008086 t get_rank
+0000809c T rpl_nbr_gc_get_worst
+000080bc t remove_neighbor
+000080e0 T rpl_neighbor_get_from_lladdr
+000080ec T rpl_neighbor_rank_via_nbr
+00008104 T rpl_neighbor_get_lladdr
+00008110 T rpl_neighbor_get_ipaddr
+0000811a T rpl_neighbor_get_link_stats
+00008124 T rpl_neighbor_is_fresh
+0000812e t best_parent
+000081ca T rpl_neighbor_set_preferred_parent
+00008212 T rpl_neighbor_remove_all
+00008242 T rpl_neighbor_get_from_ipaddr
+00008256 T rpl_neighbor_select_best
+000082aa T rpl_neighbor_init
+000082b8 t handle_state_update
+000082be t handle_leaving_timer
+000082ca t schedule_dao_retransmission
+000082fa t new_dio_interval
+00008380 t handle_unicast_dio_timer
+00008392 t send_new_dao
+000083ba t resend_dao
+000083de t handle_dao_ack_timer
+000083f0 t handle_dio_timer
+0000845e T rpl_timers_schedule_periodic_dis
+0000849a t handle_periodic_timer
+000084d4 t handle_dis_timer
+000084fa T rpl_timers_dio_reset
+00008528 T rpl_timers_schedule_unicast_dio
+00008548 T rpl_timers_schedule_dao
+00008580 T rpl_timers_schedule_dao_ack
+000085b4 T rpl_timers_notify_dao_ack
+00008632 T get_probing_delay
+0000864e T get_probing_target
+00008728 T rpl_schedule_probing
+00008748 t handle_probing_timer
+0000876e T rpl_schedule_probing_now
+00008792 T rpl_timers_unschedule_leaving
+000087ae T rpl_timers_schedule_leaving
+000087d8 T rpl_timers_init
+000087f4 T rpl_timers_stop_dag_timers
+00008840 T rpl_timers_unschedule_state_update
+00008850 T rpl_timers_schedule_state_update
+0000886c T rpl_has_joined
+0000887e T rpl_is_reachable
+00008890 t neighbor_state_changed
+00008892 t drop_route
+00008894 T rpl_get_leaf_only
+0000889a t get_sr_node_ipaddr
+000088ca t init
+0000890c t set_ip_from_prefix
+0000893c T rpl_link_callback
+0000895a T rpl_lollipop_greater_than
+00008996 T rpl_get_global_address
+00008a22 T rpl_reset_prefix
+00008a46 T rpl_set_prefix_from_addr
+00008ac6 T rtimer_arch_init
+00008ad4 T rtimer_arch_now
+00008ae2 T rtimer_arch_schedule
+00008ae8 T rtimer_init
+00008aee T rtimer_run_next
+00008b14 t process_thread_sensors_process
+00008bd6 T sensors_changed
+00008c00 t clear_fragments
+00008c38 t addr_context_lookup_by_number
+00008c4e T sicslowpan_init
+00008c66 t set_packet_attrs
+00008ccc t compress_addr_64
+00008d66 t addr_context_lookup_by_prefix
+00008d86 t send_packet
+00008d96 t fragment_copy_payload_and_send
+00008dea t packet_sent
+00008e38 t store_fragment
+00008eaa t add_fragment
+00009014 t uncompress_addr
+000090aa t output
+00009804 t input
+0000a11c t process_thread_simple_udp_process
+0000a1c4 T simple_udp_sendto
+0000a1f6 T simple_udp_register
+0000a282 T spi_init
+0000a2b4 T stack_check_init
+0000a2e2 T stack_check_get_usage
+0000a336 t process_thread_stack_check_process
+0000a408 T stimer_set
+0000a424 T stimer_expired
+0000a454 T tcpip_output
+0000a476 T udp_new
+0000a490 T tcpip_input
+0000a4ae T tcpip_ipv6_output
+0000a5ba t packet_input.part.3
+0000a5cc t process_thread_tcpip_process
+0000a68e T tcpip_uipcall
+0000a6b8 T timer_set
+0000a6d4 T timer_expired
+0000a6fe T timer_reset
+0000a71a t status
+0000a72c T tmp102_init
+0000a750 T tmp102_stop
+0000a75a t configure
+0000a780 T tmp102_read_reg
+0000a7de T tmp102_read_temp_x100
+0000a836 t value
+0000a83c T putchar
+0000a84c T uart0_active
+0000a85a T uart0_writeb
+0000a870 T uart0_init
+0000a8be t process_thread_udp_server_process
+0000a8f2 t udp_rx_callback
+0000a95e T uip_ds6_nbr_rm
+0000a97c T uip_ds6_neighbors_init
+0000a98e T uip_ds6_nbr_add
+0000a9c4 T uip_ds6_nbr_get_ll
+0000a9d0 T uip_ds6_nbr_head
+0000a9da T uip_ds6_nbr_next
+0000a9e6 T uip_ds6_nbr_lookup
+0000aa1c T uip_ds6_nbr_ll_lookup
+0000aa28 T uip_ds6_nbr_update_ll
+0000aa96 T uip_ds6_nbr_ipaddr_from_lladdr
+0000aa9c T uip_ds6_nbr_lladdr_from_ipaddr
+0000aaae T uip_ds6_link_callback
+0000aab0 T uip_ds6_route_init
+0000aac2 T uip_ds6_route_nexthop
+0000aac6 T uip_ds6_route_lookup
+0000aaca T uip_ds6_route_rm
+0000aacc T uip_ds6_defrt_rm
+0000ab04 T uip_ds6_defrt_lookup
+0000ab40 T uip_ds6_defrt_add
+0000aba6 T uip_ds6_defrt_choose
+0000abdc T uip_ds6_defrt_periodic
+0000ac14 T uip_ds6_default_prefix
+0000ac1a T uip_ds6_list_loop
+0000ac8c T uip_ds6_prefix_add
+0000acfc T uip_ds6_is_addr_onlink
+0000ad3e T uip_ds6_addr_lookup
+0000ad68 T uip_ds6_get_link_local
+0000ada6 T uip_ds6_maddr_add
+0000adee T uip_ds6_addr_add
+0000aea2 T uip_ds6_maddr_rm
+0000aeac T uip_ds6_maddr_lookup
+0000aed6 T uip_ds6_addr_rm
+0000af2a T uip_ds6_periodic
+0000af70 T uip_ds6_set_addr_iid
+0000af84 T uip_ds6_set_lladdr_from_iid
+0000af98 T get_match_length
+0000afd4 T uip_ds6_select_src
+0000b06e T uip_ds6_compute_reachable_time
+0000b0a4 T uip_ds6_init
+0000b208 t echo_reply_input
+0000b268 t echo_request_input
+0000b2ee T uip_icmp6_input
+0000b332 T uip_icmp6_register_input_handler
+0000b33e T uip_icmp6_error_output
+0000b474 T uip_icmp6_send
+0000b4f6 T uip_icmp6_init
+0000b508 t ns_input
+0000b79a T uip_nd6_init
+0000b7a4 t node_matches_address.part.0
+0000b7d2 T uip_sr_get_node
+0000b80e T uip_sr_is_addr_reachable
+0000b858 T uip_sr_expire_parent
+0000b8a0 T uip_sr_update_node
+0000b94c T uip_sr_init
+0000b962 T uip_sr_periodic
+0000b9f0 T uip_sr_free_all
+0000ba28 T uip_udp_packet_send
+0000ba52 T uip_udp_packet_sendto
+0000baa8 t chksum
+0000bada t upper_layer_chksum
+0000bb2e t ext_hdr_options_process
+0000bbc0 t uip_check_mtu
+0000bbde t uip_update_ttl
+0000bc02 T uip_icmp6chksum
+0000bc0c T uip_udpchksum
+0000bc16 T uip_init
+0000bc3a T uip_remove_ext_hdr
+0000bc98 T uip_udp_new
+0000bd1c T uip_process
+0000c1d2 T uip_htonl
+0000c1fc T uipbuf_add_ext_hdr
+0000c218 T uipbuf_set_len
+0000c22a T uipbuf_set_len_field
+0000c238 T uipbuf_get_len_field
+0000c246 T uipbuf_get_next_header
+0000c2a8 T uipbuf_get_last_header
+0000c2de T uipbuf_search_header
+0000c324 T uipbuf_get_attr
+0000c336 T uipbuf_set_attr
+0000c34a T uipbuf_clear_attr
+0000c35c T uipbuf_clear
+0000c36e T uipbuf_init
+0000c388 T uiplib_ipaddr_snprint
+0000c49c T watchdog_start
+0000c4b0 T watchdog_periodic
+0000c4c2 T watchdog_stop
+0000c4d8 T watchdog_init
+0000c4ea t wait_ready
+0000c530 T xmem_init
+0000c54e T xmem_pread
+0000c5d6 T printf
+0000c5e6 t append
+0000c608 t call_vuprintf
+0000c63e T snprintf
+0000c65a t print_field
+0000c7d0 T vuprintf
+0000cf12 T puts
+0000cf3e T rand
+0000cf64 T srand
+0000cf6e T memcmp
+0000cf9a T memcpy
+0000d082 T memmove
+0000d16a T memset
+0000d24c R adxl345
+0000d25a R button_sensor
+0000d268 R cc2420_driver
+0000d2a0 r output_power
+0000d2b0 R csma_driver
+0000d2ca R framer_802154
+0000d2d6 R linkaddr_null
+0000d2de R rpl_lite_driver
+0000d330 R sicslowpan_driver
+0000d33e R tmp102
+0000d34c R autostart_processes
+0000d4ac r CSWTCH.16
+0000d5ed R llprefix
+0000d5ef R unc_mxconf
+0000d5f3 R unc_ctxconf
+0000d5f7 R unc_llconf
+0000d5fb r ttl_values
+0000d71c A __data_load_start
+0000d71c A __data_start_rom
+0000d71c A _etext
+0000d86c A __data_end_rom
+0000ffc0 T __ivtbl_32
+0000ffc0 T __vectors_start
+00010000 A __far_data_load_start
+00010000 A _efartext
+00010000 T _vectors_end
+===== SIZE =====
+   text	   data	    bss	    dec	    hex	filename
+  42585	    336	   5866	  48787	   be93	udp-server.z1
