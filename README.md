@@ -1,9 +1,5 @@
 # CC1352R Platformlarında Contiki-NG Telsiz Donanım Yazılımının Güncellemesi — ELF Analiz Raporu
 
-**Ders:** BIL 304 - İşletim Sistemleri
-
-**Kurum:** Ondokuz Mayıs Üniversitesi (OMÜ), Bahar 2025/2026
-
 **Analiz Edilen Firmware'ler:** `new-firmware.z1`, `udp-server.z1`, `udp-client.z1`
 
 **Platform:** MSP430 / Z1 Mote / Contiki-NG / CC1352R (Hedef Donanım)
